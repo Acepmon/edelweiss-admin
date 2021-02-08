@@ -265,21 +265,17 @@ export default {
     register() {
       this.$refs.registerForm.validate().then(success => {
         if (success) {
-          useJwt.register({
-            username: this.username,
+          this.$http.post('/api/auth/register', {
+            name: this.username,
             email: this.userEmail,
             password: this.password,
+            c_password: this.password
+          }).then(res => {
+            useJwt.setToken(response.data.accessToken)
+            localStorage.setItem('userData', JSON.stringify(response.data.userData))
+            this.$ability.update(response.data.userData.ability)
+            this.$router.push('/')
           })
-            .then(response => {
-              useJwt.setToken(response.data.accessToken)
-              useJwt.setRefreshToken(response.data.refreshToken)
-              localStorage.setItem('userData', JSON.stringify(response.data.userData))
-              this.$ability.update(response.data.userData.ability)
-              this.$router.push('/')
-            })
-            .catch(error => {
-              this.$refs.registerForm.setErrors(error.response.data.error)
-            })
         }
       })
     },
