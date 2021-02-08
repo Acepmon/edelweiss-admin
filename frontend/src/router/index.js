@@ -12,6 +12,9 @@ import chartsMaps from './routes/charts-maps'
 import formsTable from './routes/forms-tables'
 import others from './routes/others'
 
+import manage from './routes/manage'
+import admin from './routes/admin'
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -22,13 +25,15 @@ const router = new VueRouter({
   },
   routes: [
     { path: '/', redirect: { name: 'dashboard-ecommerce' } },
-    ...apps,
+    // ...apps,
     ...dashboard,
     ...pages,
-    ...chartsMaps,
-    ...formsTable,
-    ...uiElements,
-    ...others,
+    // ...chartsMaps,
+    // ...formsTable,
+    // ...uiElements,
+    // ...others,
+    ...manage,
+    ...admin,
     {
       path: '*',
       redirect: 'error-404',
