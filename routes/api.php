@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CodeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,6 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::put('admins/{admin}/password', [AdminController::class, 'updatePassword'])->name('admins.update.password');
 Route::apiResource('admins', AdminController::class);
+
+Route::get('codes', [CodeController::class, 'index'])->name('codes.index');
+Route::get('codes/{cd1}', [CodeController::class, 'show'])->name('codes.show');

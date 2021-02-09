@@ -25,7 +25,7 @@ const router = new VueRouter({
   },
   routes: [
     { path: '/', redirect: { name: 'dashboard-ecommerce' } },
-    // ...apps,
+    ...apps,
     ...dashboard,
     ...pages,
     // ...chartsMaps,

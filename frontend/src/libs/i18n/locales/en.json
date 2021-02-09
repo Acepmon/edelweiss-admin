@@ -173,5 +173,27 @@
   "Layout Boxed": "Layout Boxed",
   "Without Menu": "Without Menu",
   "Layout Empty": "Layout Empty",
-  "Layout Blank": "Layout Blank"
+  "Layout Blank": "Layout Blank",
+
+  "Manage": "Manage",
+  "Orders": "Orders",
+  "Drafts": "Drafts",
+  "Abondoned carts": "Abondoned carts",
+  "Products": "Products",
+  "All Products": "All Products",
+  "Inventory": "Inventory",
+  "Transfers": "Transfers",
+  "Collections": "Collections",
+  "Smart Gifts": "Smart Gifts",
+  "Customers": "Customers",
+  "Discounts": "Discounts",
+  "Administrate": "Administrate",
+  "Admins": "Admins",
+  "Menus": "Menus",
+  "Codes": "Codes",
+
+  "Register": "Register",
+  "Reset": "Reset",
+  "Success!": "Success!",
+  "Failed!": "Failed!"
 }

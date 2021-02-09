@@ -49,6 +49,12 @@ class AdminController extends Controller
     {
         $admin = Admin::create($request->all());
 
+        if ($request->has('role')) {
+            $role = $request->input('role');
+            $admin->role_cd = $role;
+            $admin->save();
+        }
+
         return new AdminResource($admin);
     }
 

@@ -26,8 +26,8 @@ class StoreAdmin extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|string|unique:admins',
-            'password' => 'required|string',
-            'c_password' => 'required|same:password'
+            'password' => 'required|string|confirmed',
+            'role' => 'nullable|exists:common_codes,comm2_cd',
         ];
     }
 }
