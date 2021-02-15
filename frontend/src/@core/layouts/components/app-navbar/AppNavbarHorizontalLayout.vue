@@ -19,14 +19,14 @@
     <!-- Left Col -->
     <div class="bookmark-wrapper align-items-center flex-grow-1 d-none d-lg-flex">
       <!-- <bookmarks /> -->
-      <dark-Toggler class="d-none d-lg-block" />
+      <!-- <dark-Toggler class="d-none d-lg-block" /> -->
+      <search-bar />
     </div>
 
     <!-- Right Col -->
     <b-navbar-nav class="nav align-items-center ml-auto">
       <!-- <locale /> -->
       <!-- <cart-dropdown /> -->
-      <search-bar />
       <notification-dropdown />
       <user-dropdown />
     </b-navbar-nav>

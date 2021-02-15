@@ -3,26 +3,30 @@
     <b-row class="auth-inner m-0">
 
       <!-- Brand logo-->
-      <b-link class="brand-logo">
+      <!-- <b-link class="brand-logo">
         <vuexy-logo />
         <h2 class="brand-text text-primary ml-1">
           Edelweiss
         </h2>
-      </b-link>
+      </b-link> -->
       <!-- /Brand logo-->
 
       <!-- Left Text-->
       <b-col
         lg="8"
         class="d-none d-lg-flex align-items-center p-5"
+        style="background-image: url('/images/login-background.png'); background-size: auto 100%; background-position: center center; background-repeat: no-repeat;"
       >
-        <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
+        <b-link class="w-100 d-lg-flex align-items-center justify-content-center">
+          <vuexy-logo />
+        </b-link>
+        <!-- <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
           <b-img
             fluid
             :src="imgUrl"
             alt="Login V2"
           />
-        </div>
+        </div> -->
       </b-col>
       <!-- /Left Text-->
 

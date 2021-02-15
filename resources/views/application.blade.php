@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <noscript>

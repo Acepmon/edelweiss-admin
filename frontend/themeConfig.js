@@ -9,29 +9,32 @@ export const $themeBreakpoints = {}
 // APP CONFIG
 export const $themeConfig = {
   app: {
-    appName: 'Edelweiss', // Will update name in navigation menu (Branding)
+    appName: 'EDELWEISS', // Will update name in navigation menu (Branding)
     // eslint-disable-next-line global-require
-    appLogoImage: require('@/assets/images/logo/logo.svg'), // Will update logo in navigation menu (Branding)
+    appLogoImage: require('@/assets/images/logo/logo-black.png'), // Will update logo in navigation menu (Branding)
+    appLogoMini: require('@/assets/images/logo/logo.png'),
+    appLogoDarkImage: require('@/assets/images/logo/logo-white.png'),
+    appLogoDarkMini: require('@/assets/images/logo/logo.png'),
   },
   layout: {
     isRTL: false,
-    skin: 'light', // light, dark, bordered, semi-dark
-    routerTransition: 'slide-fade', // zoom-fade, slide-fade, fade-bottom, fade, zoom-out, none
+    skin: 'bordered', // light, dark, bordered, semi-dark
+    routerTransition: 'fade', // zoom-fade, slide-fade, fade-bottom, fade, zoom-out, none
     type: 'vertical', // vertical, horizontal
-    contentWidth: 'boxed', // full, boxed
+    contentWidth: 'full', // full, boxed
     menu: {
       hidden: false,
       isCollapsed: false,
     },
     navbar: {
       // ? For horizontal menu, navbar type will work for navMenu type
-      type: 'sticky', // static , sticky , floating, hidden
+      type: 'floating', // static , sticky , floating, hidden
       backgroundColor: '', // BS color options [primary, success, etc]
     },
     footer: {
       type: 'hidden', // static, sticky, hidden
     },
-    customizer: false,
+    customizer: true,
     enableScrollToTop: true,
   },
 }

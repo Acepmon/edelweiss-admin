@@ -1,5 +1,5 @@
 <template>
-  <svg
+  <!-- <svg
     viewBox="0 0 139 95"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -89,5 +89,21 @@
         </g>
       </g>
     </g>
-  </svg>
+  </svg> -->
+  <b-img
+    :src="require('@/assets/images/logo/logo-black.png')"
+    class=""
+    height="50"
+    alt="Logo"
+  />
 </template>
+
+<script>
+import { BImg } from 'bootstrap-vue'
+
+export default {
+  components: {
+    BImg
+  }
+}
+</script>
