@@ -6,7 +6,7 @@ use App\Http\Requests\StoreAdmin;
 use App\Http\Requests\UpdateAdmin;
 use App\Http\Requests\UpdateAdminPassword;
 use App\Http\Resources\AdminResource;
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,7 +19,7 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
-        $items = Admin::query();
+        $items = User::query();
 
         $with = array_filter(explode(',', $request->input('with')));
         $limit = $request->input('limit', 15);
@@ -47,7 +47,7 @@ class AdminController extends Controller
      */
     public function store(StoreAdmin $request)
     {
-        $admin = Admin::create($request->all());
+        $admin = User::create($request->all());
 
         if ($request->has('role')) {
             $role = $request->input('role');
@@ -61,10 +61,10 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(User $admin)
     {
         return new AdminResource($admin);
     }
@@ -73,10 +73,10 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdmin $request, Admin $admin)
+    public function update(UpdateAdmin $request, User $admin)
     {
         $admin = $admin->update($request->all());
 
@@ -87,10 +87,10 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $admin
      * @return \Illuminate\Http\Response
      */
-    public function updatePassword(UpdateAdminPassword $request, Admin $admin)
+    public function updatePassword(UpdateAdminPassword $request, User $admin)
     {
         $admin->password = Hash::make($request->password);
         $admin->save();
@@ -101,10 +101,10 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(User $admin)
     {
         $admin->delete();
     }

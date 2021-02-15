@@ -19,9 +19,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'avatar',
-        'provider',
-        'provider_id',
         'password',
     ];
 
@@ -35,12 +32,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function role()
+    {
+        return $this->belongsTo('App\Models\CommonCode', 'role_cd', 'comm2_cd')->whereNotIn('comm2_cd', ['$$'])->where('comm1_cd', 'A01');
+    }
 }

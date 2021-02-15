@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +27,7 @@ class AuthController extends Controller
             'c_password' => 'required|same:password'
         ]);
 
-        $admin = new Admin([
+        $admin = new User([
             'name'  => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),

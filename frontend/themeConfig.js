@@ -11,7 +11,7 @@ export const $themeConfig = {
   app: {
     appName: 'EDELWEISS', // Will update name in navigation menu (Branding)
     // eslint-disable-next-line global-require
-    appLogoImage: require('@/assets/images/logo/logo-black.png'), // Will update logo in navigation menu (Branding)
+    appLogoImage: require('@/assets/images/logo/logo-black-sm.png'), // Will update logo in navigation menu (Branding)
     appLogoMini: require('@/assets/images/logo/logo.png'),
     appLogoDarkImage: require('@/assets/images/logo/logo-white.png'),
     appLogoDarkMini: require('@/assets/images/logo/logo.png'),

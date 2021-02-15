@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenusTable extends Migration
+class CreateChannelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('url')->nullable();
-            $table->unsignedBigInteger('parent_id')->nullable();
+        Schema::create('channels', function (Blueprint $table) {
+            $table->string('channel_key', 100)->primary();
+            $table->string('channel_name', 250);
+            $table->boolean('is_disabled')->default(false);
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('channels');
     }
 }
