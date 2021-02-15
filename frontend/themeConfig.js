@@ -34,7 +34,7 @@ export const $themeConfig = {
     footer: {
       type: 'hidden', // static, sticky, hidden
     },
-    customizer: true,
+    customizer: false,
     enableScrollToTop: true,
   },
 }
