@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
 
             $table->string('product_title');
-            $table->string('product_status'); // draft, active, archived
+            $table->string('product_status_cd'); // draft, active, archived
 
-            $table->string('product_desc')->nullable();
+            $table->text('product_desc')->nullable();
             $table->string('product_sku')->nullable();
             $table->string('product_barcode')->nullable();
 

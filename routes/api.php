@@ -3,8 +3,10 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CodeController;
+use App\Http\Controllers\DraftController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageMetaController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,10 @@ Route::group(['prefix' => 'auth'], function () {
       Route::get('user', [AuthController::class, 'user']);
     });
 });
+
+Route::get('products', [ProductController::class, 'index'])->name('products.index');
+
+Route::get('drafts', [DraftController::class, 'index'])->name('drafts.index');
 
 Route::put('admins/{admin}/password', [AdminController::class, 'updatePassword'])->name('admins.update.password');
 Route::apiResource('admins', AdminController::class);

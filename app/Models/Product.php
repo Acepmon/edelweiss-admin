@@ -9,6 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
+    public function product_status()
+    {
+        return $this->belongsTo('App\Models\CommonCode', 'product_status_cd', 'comm2_cd')->whereNotIn('comm2_cd', ['$$'])->where('comm1_cd', 'C01');
+    }
+
     public function category()
     {
         return $this->belongsTo('App\Models\Category');

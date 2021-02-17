@@ -15,6 +15,8 @@
         <app-mgmt-button block @click="onFilter">Filter</app-mgmt-button>
       </div>
     </div>
+
+    <app-mgmt-grid :columns="options.columns" :api="options.api"></app-mgmt-grid>
   </app-mgmt>
 </template>
 
@@ -24,6 +26,7 @@ import AppMgmtHeader from '@/@core/components/app-mgmt/AppMgmtHeader.vue'
 import AppMgmtInputSearch from '@/@core/components/app-mgmt/AppMgmtInputSearch.vue'
 import AppMgmtInputDropdown from '@/@core/components/app-mgmt/AppMgmtInputDropdown.vue'
 import AppMgmtButton from '@/@core/components/app-mgmt/AppMgmtButton.vue'
+import AppMgmtGrid from '@/@core/components/app-mgmt/AppMgmtGrid.vue'
 
 export default {
   name: 'manage-orders-drafts',
@@ -33,7 +36,8 @@ export default {
     AppMgmtHeader,
     AppMgmtInputSearch,
     AppMgmtInputDropdown,
-    AppMgmtButton
+    AppMgmtButton,
+    AppMgmtGrid
   },
 
   data () {
@@ -43,6 +47,15 @@ export default {
           { key: 'all', title: 'All', active: true },
           { key: 'sent', title: 'Invoice sent', active: false },
           { key: 'completed', title: 'Completed', active: false },
+        ],
+
+        api: "/api/drafts",
+        columns: [
+          { label: 'Draft order', field: 'draft_no' },
+          { label: 'Date', field: 'created_at' },
+          { label: 'Customer', field: 'customer_name' },
+          { label: 'Status', field: 'status_label' },
+          { label: 'Total', field: 'total_amount' },
         ]
       },
 

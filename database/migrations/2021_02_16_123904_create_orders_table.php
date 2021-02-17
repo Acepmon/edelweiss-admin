@@ -16,11 +16,11 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('customer_id');
             $table->double('total_amount', 10, 2);
-            $table->string('status'); // open, archived, canceled
-            $table->string('payment_status'); // authorized, paid, partially refunded, partially paid, pending, refunded, unpaid, voided
-            $table->string('fulfillment_status'); // fulfilled, unfulfilled, partially fulfilled, scheduled
+            $table->string('order_status_cd'); // open, archived, canceled
+            $table->string('payment_status_cd'); // authorized, paid, partially refunded, partially paid, pending, refunded, unpaid, voided
+            $table->string('fulfillment_status_cd'); // fulfilled, unfulfilled, partially fulfilled, scheduled
+            $table->unsignedBigInteger('customer_id')->nullable();
 
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();

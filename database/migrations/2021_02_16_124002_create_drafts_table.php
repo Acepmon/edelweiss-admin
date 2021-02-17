@@ -16,9 +16,10 @@ class CreateDraftsTable extends Migration
         Schema::create('drafts', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('customer_id');
             $table->double('total_amount', 10, 2);
-            $table->string('status'); // open, invoice sent, completed
+            $table->string('status_cd'); // open, invoice sent, completed
+
+            $table->unsignedBigInteger('customer_id')->nullable();
             $table->string('notes')->nullable();
             $table->string('tags')->nullable();
 
