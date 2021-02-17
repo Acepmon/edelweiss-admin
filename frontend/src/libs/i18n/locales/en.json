@@ -191,9 +191,15 @@
   "Admins": "Admins",
   "Menus": "Menus",
   "Codes": "Codes",
+  "Sales Channels": "Sales Channels",
+  "Add Channel": "Add Channel",
+  "Online Shop": "Online Shop",
+  "POS": "POS",
 
   "Register": "Register",
   "Reset": "Reset",
   "Success!": "Success!",
-  "Failed!": "Failed!"
+  "Failed!": "Failed!",
+
+  "Clear": "Clear"
 }
