@@ -39,7 +39,8 @@ import formAndTable from './forms-and-table'
 
 import manage from './manage'
 import admin from './admin'
+import channels from './channels'
 
 // Array of sections
 // export default [...dashboard, ...appsAndPages, ...uiElements, ...formAndTable, ...chartsAndMaps, ...others]
-export default [...dashboard, ...manage, ...admin]
+export default [...dashboard, ...manage, ...admin, ...channels]

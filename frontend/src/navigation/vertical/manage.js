@@ -13,11 +13,7 @@ export default [
       {
         title: 'Drafts',
         route: 'manage-orders-drafts'
-      },
-      {
-        title: 'Abondoned carts',
-        route: 'manage-orders-abondoned'
-      },
+      }
     ]
   },
   {
@@ -39,22 +35,13 @@ export default [
       {
         title: 'Collections',
         route: 'manage-products-collections'
-      },
-      {
-        title: 'Smart Gifts',
-        route: 'manage-products-smart-gifts'
-      },
+      }
     ]
   },
   {
     title: 'Customers',
     route: 'manage-customers',
     icon: 'UsersIcon'
-  },
-  {
-    title: 'Analytics',
-    route: 'manage-analytics',
-    icon: 'BarChartIcon'
   },
   {
     title: 'Discounts',
