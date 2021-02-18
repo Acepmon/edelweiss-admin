@@ -51,11 +51,11 @@ export default {
 
         api: "/api/drafts",
         columns: [
-          { label: 'Draft order', field: 'draft_no' },
-          { label: 'Date', field: 'created_at' },
-          { label: 'Customer', field: 'customer_name' },
-          { label: 'Status', field: 'status_label' },
-          { label: 'Total', field: 'total_amount' },
+          { label: 'Draft order', field: 'id', sortable: true, formatFn: (val) => '#D' + val },
+          { label: 'Date', field: 'created_at', type: 'date', dateInputFormat: 'yyyy-MM-dd HH:mm', dateOutputFormat: 'MMM do yyyy', sortable: true },
+          { label: 'Customer', field: 'customer_name', sortable: false },
+          { label: 'Status', field: 'status_label', sortable: false },
+          { label: 'Total', field: 'total_amount', type: 'decimal', sortable: true, formatFn: (val) => 'MNT ' + val },
         ]
       },
 

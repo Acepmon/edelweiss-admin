@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+header('Access-Control-Allow-Origin: *');
+
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('register', [AuthController::class, 'register']);

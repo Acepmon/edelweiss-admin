@@ -17,11 +17,11 @@ class DraftResource extends JsonResource
         return [
             'id' => $this->id,
             'draft_no' => '#D' . $this->id,
-            'created_at' => $this->created_at->diffForHumans(),
+            'created_at' => $this->created_at->format('Y-m-d H:i'),
             'customer_name' => null,
             'status_cd' => $this->status_cd,
             'status_label' => $this->status->comm2_nm,
-            'total_amount' => 'MNT ' . number_format($this->total_amount)
+            'total_amount' => number_format($this->total_amount)
         ];
     }
 }

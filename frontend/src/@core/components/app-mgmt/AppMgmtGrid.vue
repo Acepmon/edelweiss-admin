@@ -53,9 +53,9 @@ export default {
       serverParams: {
         columnFilters: {
         },
-        sort: {
-          field: '', 
-          type: '',
+        'sort[]': {
+          field: 'id',
+          type: 'asc',
         },
         page: 1, 
         perPage: 10
@@ -100,10 +100,7 @@ export default {
 
     onSortChange(params) {
       this.updateParams({
-        sort: [{
-          type: params.sortType,
-          field: this.columns[params.columnIndex].field,
-        }],
+        'sort[]': params[0],
       });
       this.loadItems();
     },

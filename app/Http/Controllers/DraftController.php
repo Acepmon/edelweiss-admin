@@ -15,9 +15,20 @@ class DraftController extends Controller
      */
     public function index(Request $request)
     {
+        $with = array_filter(explode(',', $request->input('with')));
         $perPage = $request->input('perPage', 10);
+        $sorts = $request->input('sort', ['field' => 'id', 'type' => 'asc']);
+        $sorts = json_decode($sorts[0], true);
+        $sort = $sorts['field'];
+        $order = $sorts['type'];
 
-        $items = Draft::paginate($perPage);
+        $items = Draft::query();
+
+        if ($perPage == -1) {
+            $items = $items->with($with)->orderBy($sort, $order)->get();
+        } else {
+            $items = $items->with($with)->orderBy($sort, $order)->paginate($perPage);
+        }
 
         return DraftResource::collection($items);
     }
