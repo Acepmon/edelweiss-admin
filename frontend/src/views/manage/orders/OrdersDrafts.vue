@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <app-mgmt-grid :columns="options.columns" :api="options.api"></app-mgmt-grid>
+    <app-mgmt-grid :columns="options.columns" :api="options.api" @on-row-dblclick="onRowClick"></app-mgmt-grid>
   </app-mgmt>
 </template>
 
@@ -83,6 +83,10 @@ export default {
 
     onFilter () {
       this.filter.status = ['open']
+    },
+
+    onRowClick (params) {
+      console.log(params)
     }
   }
 }

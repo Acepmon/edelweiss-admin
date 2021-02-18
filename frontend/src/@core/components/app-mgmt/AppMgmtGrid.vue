@@ -8,7 +8,10 @@
     :columns="columns"
     :isLoading.sync="isLoading"
     compactMode
+    styleClass="vgt-table striped hover pointer"
 
+    @on-row-click="(params) => $emit('on-row-click', params)"
+    @on-row-dblclick="(params) => $emit('on-row-dblclick', params)"
     @on-page-change="onPageChange"
     @on-sort-change="onSortChange"
     @on-column-filter="onColumnFilter"
@@ -39,14 +42,6 @@ export default {
       isLoading: false,
 
       mode: 'remote',
-      paginationOptions: {
-        enabled: true
-      },
-
-      selectOptions: {
-        enabled: true
-      },
-
       rows: [],
       totalRecords: 0,
 
@@ -72,6 +67,25 @@ export default {
     api: {
       type: String,
       default: null
+    },
+
+    paginationOptions: {
+      type: Object,
+      default: () => {
+        return {
+          enabled: true
+        }
+      }
+    },
+
+    selectOptions: {
+      type: Object,
+      default: () => {
+        return {
+          enabled: true,
+          selectOnCheckboxOnly: true
+        }
+      }
     }
   },
 
@@ -151,5 +165,13 @@ table.vgt-table thead tr > th.vgt-checkbox-col {
 .vgt-wrap__footer {
   border-left: 0px;
   border-right: 0px;
+}
+
+table.vgt-table.hover tbody tr:hover {
+  background: rgba(51, 68, 109, 0.08);
+}
+
+table.vgt-table.pointer tbody tr {
+  cursor: pointer;
 }
 </style>
