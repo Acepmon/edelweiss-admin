@@ -14,11 +14,27 @@ class CommonCodeSeeder extends Seeder
      */
     public function run()
     {
+        // A - Account related
+        // B - Channels related
+        // C - Product related
+        // D - Order related
+
         CommonCode::truncate();
         CommonCode::insert([
             ['comm1_cd' => 'A01', 'comm2_cd' => '$$', 'comm2_nm' => 'Administrator Roles'],
             ['comm1_cd' => 'A01', 'comm2_cd' => '10', 'comm2_nm' => 'Super Admin'],
             ['comm1_cd' => 'A01', 'comm2_cd' => '20', 'comm2_nm' => 'Operator'],
+
+            ['comm1_cd' => 'A02', 'comm2_cd' => '$$', 'comm2_nm' => 'Subscription Status'],
+            ['comm1_cd' => 'A02', 'comm2_cd' => '10', 'comm2_nm' => 'Not Subscribed'],
+            ['comm1_cd' => 'A02', 'comm2_cd' => '20', 'comm2_nm' => 'Pending Confirmation'],
+            ['comm1_cd' => 'A02', 'comm2_cd' => '30', 'comm2_nm' => 'Subscribed'],
+
+            ['comm1_cd' => 'A03', 'comm2_cd' => '$$', 'comm2_nm' => 'Account Status'],
+            ['comm1_cd' => 'A03', 'comm2_cd' => '10', 'comm2_nm' => 'Active'],
+            ['comm1_cd' => 'A03', 'comm2_cd' => '20', 'comm2_nm' => 'Disabled'],
+            ['comm1_cd' => 'A03', 'comm2_cd' => '30', 'comm2_nm' => 'Invited to Create Account'],
+            ['comm1_cd' => 'A03', 'comm2_cd' => '40', 'comm2_nm' => 'Declined Account Invitation'],
 
             ['comm1_cd' => 'B01', 'comm2_cd' => '$$', 'comm2_nm' => 'Page Type'],
             ['comm1_cd' => 'B01', 'comm2_cd' => '10', 'comm2_nm' => 'Normal Page'],
@@ -38,17 +54,17 @@ class CommonCodeSeeder extends Seeder
             ['comm1_cd' => 'D02', 'comm2_cd' => '10', 'comm2_nm' => 'Authorized'],
             ['comm1_cd' => 'D02', 'comm2_cd' => '20', 'comm2_nm' => 'Paid'],
             ['comm1_cd' => 'D02', 'comm2_cd' => '30', 'comm2_nm' => 'Partially Refunded'],
-            ['comm1_cd' => 'D02', 'comm2_cd' => '30', 'comm2_nm' => 'Partially Paid'],
-            ['comm1_cd' => 'D02', 'comm2_cd' => '30', 'comm2_nm' => 'Pending'],
-            ['comm1_cd' => 'D02', 'comm2_cd' => '30', 'comm2_nm' => 'Refunded'],
-            ['comm1_cd' => 'D02', 'comm2_cd' => '30', 'comm2_nm' => 'Unpaid'],
-            ['comm1_cd' => 'D02', 'comm2_cd' => '30', 'comm2_nm' => 'Voided'],
+            ['comm1_cd' => 'D02', 'comm2_cd' => '40', 'comm2_nm' => 'Partially Paid'],
+            ['comm1_cd' => 'D02', 'comm2_cd' => '50', 'comm2_nm' => 'Pending'],
+            ['comm1_cd' => 'D02', 'comm2_cd' => '60', 'comm2_nm' => 'Refunded'],
+            ['comm1_cd' => 'D02', 'comm2_cd' => '70', 'comm2_nm' => 'Unpaid'],
+            ['comm1_cd' => 'D02', 'comm2_cd' => '80', 'comm2_nm' => 'Voided'],
 
             ['comm1_cd' => 'D03', 'comm2_cd' => '$$', 'comm2_nm' => 'Fulfillment Status'],
             ['comm1_cd' => 'D03', 'comm2_cd' => '10', 'comm2_nm' => 'Fulfilled'],
             ['comm1_cd' => 'D03', 'comm2_cd' => '20', 'comm2_nm' => 'Unfulfilled'],
             ['comm1_cd' => 'D03', 'comm2_cd' => '30', 'comm2_nm' => 'Partially Fulfilled'],
-            ['comm1_cd' => 'D03', 'comm2_cd' => '30', 'comm2_nm' => 'Scheduled'],
+            ['comm1_cd' => 'D03', 'comm2_cd' => '40', 'comm2_nm' => 'Scheduled'],
 
             ['comm1_cd' => 'D04', 'comm2_cd' => '$$', 'comm2_nm' => 'Draft Status'],
             ['comm1_cd' => 'D04', 'comm2_cd' => '10', 'comm2_nm' => 'Open'],

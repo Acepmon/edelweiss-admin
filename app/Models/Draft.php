@@ -15,4 +15,9 @@ class Draft extends Model
     {
         return $this->belongsTo('App\Models\CommonCode', 'status_cd', 'comm2_cd')->whereNotIn('comm2_cd', ['$$'])->where('comm1_cd', 'D04');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer');
+    }
 }
