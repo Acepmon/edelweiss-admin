@@ -48,8 +48,7 @@ export default {
       totalRecords: 0,
 
       serverParams: {
-        columnFilters: {
-        },
+        columnFilters: this.columnFilters,
         'sort[]': {
           field: 'id',
           type: 'asc',
@@ -70,6 +69,11 @@ export default {
     api: {
       type: String,
       default: null
+    },
+
+    columnFilters: {
+      type: Object,
+      default: () => {}
     },
 
     searchOptions: {

@@ -3,22 +3,27 @@
     <app-mgmt-header :tabs="options.tabs"></app-mgmt-header>
 
     <div class="form-row px-1 pb-1">
-      <div class="col">
+      <div class="col-2">
         <app-mgmt-input-search v-model="filter.search" />
       </div>
 
-      <div class="col-1">
+      <!-- <div class="col-1">
         <app-mgmt-input-dropdown v-model="filter.status" :options="statuses" text="Status" @change="onStatusChange" />
-      </div>
+      </div> -->
 
-      <div class="col-1">
-        <app-mgmt-button block @click="onFilter">Filter</app-mgmt-button>
+      <div class="col text-right">
+        <app-mgmt-button variant="primary" @click="onFilter">
+          <feather-icon icon="PlusIcon" class="mr-1"></feather-icon>
+          New Draft Order
+        </app-mgmt-button>
       </div>
     </div>
 
     <app-mgmt-grid 
+      ref="grid"
       :columns="options.columns" 
       :api="options.api" 
+      :columnFilters="{status_cd: filter.status}"
       @on-row-dblclick="onRowClick" 
       :searchOptions="{
         enabled: true,
@@ -55,11 +60,7 @@ export default {
         status: []
       },
 
-      statuses: [
-        { text: 'Open', value: 'open' },
-        { text: 'Invoice Sent', value: 'sent' },
-        { text: 'Completed', value: 'completed' },
-      ],
+      statuses: [],
 
       options: {
         tabs: [
@@ -68,11 +69,25 @@ export default {
 
         api: "/api/drafts",
         columns: [
-          { label: 'Draft order', field: 'id', sortable: true, formatFn: (val) => '#D' + val },
-          { label: 'Date', field: 'created_at', type: 'date', dateInputFormat: 'yyyy-MM-dd HH:mm', dateOutputFormat: 'MMM do yyyy', sortable: true },
-          { label: 'Customer', field: 'customer_name', sortable: false },
-          { label: 'Status', field: 'status_label', sortable: false },
-          { label: 'Total', field: 'total_amount', type: 'decimal', sortable: true, formatFn: (val) => 'MNT ' + val },
+          { label: 'Draft order', field: 'id', sortable: true, formatFn: (val) => '#D' + val, filterOptions: { enabled: true, placeholder: 'Filter from draft number'} },
+          { label: 'Date', field: 'created_at', type: 'date', dateInputFormat: 'yyyy-MM-dd HH:mm', dateOutputFormat: 'yyyy-MM-dd HH:mm', sortable: true, filterOptions: { enabled: true, placeholder: 'Search date'} },
+          { label: 'Customer', field: 'customer_name', sortable: false, filterOptions: { enabled: true, placeholder: 'Search customer'} },
+          { 
+            label: 'Status',
+            field: 'status_cd',
+            sortable: false,
+            formatFn: (val) => {
+              let text = val
+              this.statuses.forEach(status => {
+                if (status.value == val) {
+                  text = status.text
+                }
+              });
+              return text
+            },
+            filterOptions: { enabled: true, filterDropdownItems: [], placeholder: 'Filter from status'}
+          },
+          { label: 'Total', field: 'total_amount', type: 'decimal', sortable: true, formatFn: (val) => 'MNT ' + val, filterOptions: { enabled: true, placeholder: 'Filter total amount'} },
         ]
       }
     }
@@ -88,12 +103,28 @@ export default {
     },
 
     onFilter () {
-      this.filter.status = ['open']
+      console.log(this.$refs.grid)
+      this.$refs.grid.loadItems()
     },
 
     onRowClick (params) {
       console.log(params)
     }
+  },
+
+  mounted () {
+    this.$http.get('/api/codes/D04')
+      .then((res) => {
+        let data = res.data.data
+        let statuses = data.map((status) => {
+          return {
+            text: status.comm2_nm,
+            value: status.comm2_cd
+          }
+        })
+        this.statuses = statuses
+        this.options.columns[3].filterOptions.filterDropdownItems = statuses
+      })
   }
 }
 </script>
