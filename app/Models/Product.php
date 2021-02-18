@@ -18,4 +18,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
+
+    public function collections()
+    {
+        return $this->belongsToMany('App\Models\Collection', 'collections_products');
+    }
 }

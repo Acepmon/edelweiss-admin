@@ -17,14 +17,14 @@ class CreateCollectionsTable extends Migration
             $table->id();
             
             $table->string('coll_title');
-            $table->string('coll_desc')->nullable();
             $table->string('coll_image')->nullable();
+            $table->text('coll_desc')->nullable();
         });
 
         Schema::create('collections_seo', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('collection_id');
-            
+
             $table->string('seo_title', 70)->nullable();
             $table->string('seo_desc', 320)->nullable();
             $table->string('seo_url', 250)->nullable();
