@@ -163,7 +163,9 @@ export default {
 
 table.vgt-table {
   font-size: 1rem;
-  border: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
 }
 
 table.vgt-table tr > td:first-child,

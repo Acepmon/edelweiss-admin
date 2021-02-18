@@ -68,12 +68,12 @@ export default {
   methods: {
     onClear () {
       this.$emit('input', [])
-      this.$emit('change')
+      this.$emit('change', [])
     },
 
     handleChange (val) {
       this.$emit('input', val)
-      this.$emit('change')
+      this.$emit('change', val)
     }
   }
 }
