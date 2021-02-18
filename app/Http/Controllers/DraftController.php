@@ -16,7 +16,7 @@ class DraftController extends Controller
     public function index(Request $request)
     {
         $with = array_filter(explode(',', $request->input('with')));
-        $perPage = $request->input('perPage', 10);
+        $limit = $request->input('limit', 10);
         $sorts = $request->input('sort', ['field' => 'id', 'type' => 'asc']);
         $sorts = json_decode($sorts[0], true);
         $sort = $sorts['field'];
@@ -24,10 +24,15 @@ class DraftController extends Controller
 
         $items = Draft::query();
 
-        if ($perPage == -1) {
+        if ($request->has('search') && !empty($request->input('search'))) {
+            $search = $request->input('search');
+            $items = $items->where('id', $search);
+        }
+
+        if ($limit == -1) {
             $items = $items->with($with)->orderBy($sort, $order)->get();
         } else {
-            $items = $items->with($with)->orderBy($sort, $order)->paginate($perPage);
+            $items = $items->with($with)->orderBy($sort, $order)->paginate($limit);
         }
 
         return DraftResource::collection($items);

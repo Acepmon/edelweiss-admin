@@ -16,7 +16,15 @@
       </div>
     </div>
 
-    <app-mgmt-grid :columns="options.columns" :api="options.api" @on-row-dblclick="onRowClick"></app-mgmt-grid>
+    <app-mgmt-grid 
+      :columns="options.columns" 
+      :api="options.api" 
+      @on-row-dblclick="onRowClick" 
+      :searchOptions="{
+        enabled: true,
+        trigger: 'enter',
+        externalQuery: filter.search
+      }"></app-mgmt-grid>
   </app-mgmt>
 </template>
 
@@ -42,11 +50,20 @@ export default {
 
   data () {
     return {
+      filter: {
+        search: '',
+        status: []
+      },
+
+      statuses: [
+        { text: 'Open', value: 'open' },
+        { text: 'Invoice Sent', value: 'sent' },
+        { text: 'Completed', value: 'completed' },
+      ],
+
       options: {
         tabs: [
-          { key: 'all', title: 'All', active: true },
-          { key: 'sent', title: 'Invoice sent', active: false },
-          { key: 'completed', title: 'Completed', active: false },
+          { key: 'all', title: 'All', active: true }
         ],
 
         api: "/api/drafts",
@@ -57,18 +74,7 @@ export default {
           { label: 'Status', field: 'status_label', sortable: false },
           { label: 'Total', field: 'total_amount', type: 'decimal', sortable: true, formatFn: (val) => 'MNT ' + val },
         ]
-      },
-
-      filter: {
-        search: null,
-        status: []
-      },
-
-      statuses: [
-        { text: 'Open', value: 'open' },
-        { text: 'Invoice Sent', value: 'sent' },
-        { text: 'Completed', value: 'completed' },
-      ]
+      }
     }
   },
 

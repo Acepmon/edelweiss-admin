@@ -2,6 +2,7 @@
   <vue-good-table 
     :mode="mode"
     :pagination-options="paginationOptions"
+    :search-options="searchOptions"
     :select-options="selectOptions"
     :totalRows="totalRecords"
     :rows="rows"
@@ -16,6 +17,7 @@
     @on-sort-change="onSortChange"
     @on-column-filter="onColumnFilter"
     @on-per-page-change="onPerPageChange"
+    @on-search="onSearch"
   >
     <template #loadingContent>
       <div class="text-center my-2">
@@ -53,7 +55,8 @@ export default {
           type: 'asc',
         },
         page: 1, 
-        perPage: 10
+        limit: 10,
+        search: null
       }
     }
   },
@@ -67,6 +70,15 @@ export default {
     api: {
       type: String,
       default: null
+    },
+
+    searchOptions: {
+      type: Object,
+      default: () => {
+        return {
+          enabled: true
+        }
+      }
     },
 
     paginationOptions: {
@@ -108,7 +120,7 @@ export default {
     },
 
     onPerPageChange(params) {
-      this.updateParams({perPage: params.currentPerPage});
+      this.updateParams({limit: params.currentPerPage});
       this.loadItems();
     },
 
@@ -121,6 +133,13 @@ export default {
 
     onColumnFilter(params) {
       this.updateParams(params);
+      this.loadItems();
+    },
+
+    onSearch(params) {
+      this.updateParams({
+        search: params.searchTerm
+      });
       this.loadItems();
     },
 
