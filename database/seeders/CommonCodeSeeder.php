@@ -45,6 +45,12 @@ class CommonCodeSeeder extends Seeder
             ['comm1_cd' => 'C01', 'comm2_cd' => '20', 'comm2_nm' => 'Active'],
             ['comm1_cd' => 'C01', 'comm2_cd' => '30', 'comm2_nm' => 'Archived'],
 
+            ['comm1_cd' => 'C02', 'comm2_cd' => '$$', 'comm2_nm' => 'Product Variants'],
+            ['comm1_cd' => 'C02', 'comm2_cd' => 'size', 'comm2_nm' => 'Size'],
+            ['comm1_cd' => 'C02', 'comm2_cd' => 'color', 'comm2_nm' => 'Color'],
+            ['comm1_cd' => 'C02', 'comm2_cd' => 'material', 'comm2_nm' => 'Material'],
+            ['comm1_cd' => 'C02', 'comm2_cd' => 'style', 'comm2_nm' => 'Style'],
+
             ['comm1_cd' => 'D01', 'comm2_cd' => '$$', 'comm2_nm' => 'Order Status'],
             ['comm1_cd' => 'D01', 'comm2_cd' => '10', 'comm2_nm' => 'Open'],
             ['comm1_cd' => 'D01', 'comm2_cd' => '20', 'comm2_nm' => 'Archived'],

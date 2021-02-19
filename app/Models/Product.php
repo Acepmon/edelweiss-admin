@@ -23,4 +23,14 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\Collection', 'collections_products');
     }
+
+    public function seo()
+    {
+        return $this->hasOne('App\Models\ProductSeo');
+    }
+
+    public function variants()
+    {
+        return $this->hasMany('App\Models\ProductVariant');
+    }
 }

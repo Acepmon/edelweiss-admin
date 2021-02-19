@@ -32,6 +32,7 @@ class CreateProductsTable extends Migration
             $table->boolean('charge_tax')->default(false);
             $table->boolean('sell_out_of_stock')->default(false);
             $table->boolean('has_variants')->default(false);
+            $table->boolean('is_variant')->default(false);
 
             $table->timestamps();
         });
@@ -49,9 +50,12 @@ class CreateProductsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('variant_id');
+            $table->string('variant_type'); // C02
+            $table->string('variant_title');
+            $table->string('variant_sku')->nullable();
 
-            $table->string('variant_type');
+            $table->bigInteger('variant_stock')->default(0);
+            $table->double('variant_price', 10, 2)->default(0.00);
         });
 
         Schema::create('products_channels', function (Blueprint $table) {

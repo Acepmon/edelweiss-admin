@@ -21,6 +21,7 @@ class CollectionResource extends JsonResource
             'coll_image' => $this->coll_image,
 
             'products' => ProductResource::collection($this->whenLoaded('products')),
+            'seo' => new SeoResource($this->whenLoaded('seo')),
         ];
     }
 }

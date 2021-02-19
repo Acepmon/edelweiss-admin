@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\CommonCode;
 use App\Models\Product;
+use App\Models\ProductSeo;
+use App\Models\ProductVariant;
 use Illuminate\Database\Seeder;
 
 class TestProductSeeder extends Seeder
@@ -14,6 +17,14 @@ class TestProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory()->count(100)->create();
+        Product::factory()->count(50)->create()->each(function ($product) {
+            ProductSeo::factory()->state(['product_id' => $product->id])->create();
+
+            if ($product->has_variants) {
+                ProductVariant::factory()->count(10)->state([
+                    'product_id' => $product->id
+                ])->create();
+            }
+        });
     }
 }
