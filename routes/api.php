@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CodeController;
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DraftController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageMetaController;
@@ -38,6 +39,8 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
+
+Route::get('collections', [CollectionController::class, 'index'])->name('collections.index');
 
 Route::get('drafts', [DraftController::class, 'index'])->name('drafts.index');
 

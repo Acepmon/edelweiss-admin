@@ -113,18 +113,7 @@ export default {
   },
 
   mounted () {
-    this.$http.get('/api/codes/D04')
-      .then((res) => {
-        let data = res.data.data
-        let statuses = data.map((status) => {
-          return {
-            text: status.comm2_nm,
-            value: status.comm2_cd
-          }
-        })
-        this.statuses = statuses
-        this.options.columns[3].filterOptions.filterDropdownItems = statuses
-      })
+    // 
   }
 }
 </script>

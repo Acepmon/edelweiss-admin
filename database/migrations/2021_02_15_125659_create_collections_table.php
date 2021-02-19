@@ -19,6 +19,8 @@ class CreateCollectionsTable extends Migration
             $table->string('coll_title');
             $table->string('coll_image')->nullable();
             $table->text('coll_desc')->nullable();
+
+            $table->timestamps();
         });
 
         Schema::create('collections_seo', function (Blueprint $table) {

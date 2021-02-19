@@ -1,6 +1,6 @@
 <template>
   <vue-good-table 
-    :mode="mode"
+    mode="remote"
     :pagination-options="paginationOptions"
     :search-options="searchOptions"
     :select-options="selectOptions"
@@ -24,31 +24,46 @@
         <b-spinner type="grow" label="Loading..."></b-spinner>
       </div>
     </template>
+
+    <template slot="table-row" slot-scope="props">
+
+      <!-- Column: Image -->
+      <span v-if="props.column.field == 'coll_image'">
+        <b-img :src="props.row.coll_image" :blank-src="require('@/assets/images/misc/placeholder.jpg')" thumbnail fluid></b-img>
+      </span>
+
+    </template>
   </vue-good-table>
 </template>
 
 <script>
 import { BSpinner } from 'bootstrap-vue'
 import { VueGoodTable } from 'vue-good-table'
+import { BImg } from 'bootstrap-vue'
 
 export default {
-  name: 'app-mgmt-grid',
+  name: 'products-collections-grid',
 
   components: {
     BSpinner,
-    VueGoodTable
+    VueGoodTable,
+    BImg
   },
 
   data () {
     return {
       isLoading: false,
 
-      mode: 'remote',
-      rows: [],
       totalRecords: 0,
+      rows: [],
+      columns: [
+        { label: '', field: 'coll_image', sortable: false, width: '100px' },
+        { label: 'Title', field: 'coll_title', sortable: false },
+        { label: 'Description', field: 'coll_desc', sortable: false },
+      ],
 
       serverParams: {
-        columnFilters: this.columnFilters,
+        columnFilters: {},
         'sort[]': {
           field: 'id',
           type: 'asc',
@@ -61,21 +76,6 @@ export default {
   },
 
   props: {
-    columns: {
-      type: Array,
-      default: () => []
-    },
-
-    api: {
-      type: String,
-      default: null
-    },
-
-    columnFilters: {
-      type: Object,
-      default: () => {}
-    },
-
     searchOptions: {
       type: Object,
       default: () => {
@@ -107,7 +107,7 @@ export default {
 
   methods: {
     getFromServer (params) {
-      let promise = this.$http.get(this.api, {
+      let promise = this.$http.get("/api/collections", {
         params: params
       })
 
