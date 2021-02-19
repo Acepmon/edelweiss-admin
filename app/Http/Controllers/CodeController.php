@@ -64,6 +64,13 @@ class CodeController extends Controller
         return CommonCodeResource::collection($items);
     }
 
+    public function show2(Request $request, $cd1, $cd2)
+    {
+        $item = CommonCode::where('comm1_cd', $cd1)->where('comm2_cd', $cd2)->first();
+
+        return new CommonCodeResource($item);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -71,9 +78,24 @@ class CodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $cd1, $cd2)
     {
-        //
+        $request->validate([
+            'comm1_cd' => 'required',
+            'comm2_cd' => 'required',
+            'comm2_nm' => 'required'
+        ]);
+
+        $item = CommonCode::where('comm1_cd', $cd1)->where('comm2_cd', $cd2)->first();
+        
+        if ($item != null) {
+            CommonCode::where('comm1_cd', $cd1)->where('comm2_cd', $cd2)->update($request->all());
+        }
+
+        return response()->json([
+            'result' => 'success',
+            'message' => 'Success'
+        ]);
     }
 
     /**

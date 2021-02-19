@@ -52,3 +52,5 @@ Route::apiResource('pages.metas', PageMetaController::class)->except(['show']);
 
 Route::get('codes', [CodeController::class, 'index'])->name('codes.index');
 Route::get('codes/{cd1}', [CodeController::class, 'show'])->name('codes.show');
+Route::get('codes/{cd1}/{cd2}', [CodeController::class, 'show2'])->name('codes.show2');
+Route::put('codes/{cd1}/{cd2}', [CodeController::class, 'update'])->name('codes.update');

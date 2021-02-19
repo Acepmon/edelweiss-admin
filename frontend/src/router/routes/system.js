@@ -17,6 +17,7 @@ export default [
     path: '/system/codes',
     name: 'system-codes',
     component: () => import('@/views/system/codes/Codes.vue'),
+    redirect: { name: 'system-codes-grid' },
     children: [
       {
         path: '',
