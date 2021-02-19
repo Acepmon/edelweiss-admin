@@ -13,7 +13,7 @@ import formsTable from './routes/forms-tables'
 import others from './routes/others'
 
 import manage from './routes/manage'
-import admin from './routes/admin'
+import system from './routes/system'
 
 Vue.use(VueRouter)
 
@@ -33,7 +33,7 @@ const router = new VueRouter({
     // ...uiElements,
     // ...others,
     ...manage,
-    ...admin,
+    ...system,
     {
       path: '*',
       redirect: 'error-404',

@@ -14,6 +14,12 @@ class CommonCodeResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'comm1_cd' => $this->comm1_cd,
+            'comm2_cd' => $this->comm2_cd,
+            'comm2_nm' => $this->comm2_nm,
+
+            'sub_codes' => CommonCodeResource::collection($this->whenLoaded('sub_codes')),
+        ];
     }
 }

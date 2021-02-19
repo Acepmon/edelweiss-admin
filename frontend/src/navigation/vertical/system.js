@@ -4,12 +4,12 @@ export default [
   },
   {
     title: 'nav.admins',
-    route: 'admins-admins',
+    route: 'system-admins',
     icon: 'UserIcon',
   },
   {
     title: 'nav.codes',
-    route: 'admins-codes',
+    route: 'system-codes',
     icon: 'CodeIcon',
   },
 ]

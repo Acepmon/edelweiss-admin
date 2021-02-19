@@ -38,9 +38,9 @@ import uiElements from './ui-elements'
 import formAndTable from './forms-and-table'
 
 import manage from './manage'
-import admin from './admin'
+import system from './system'
 import channels from './channels'
 
 // Array of sections
 // export default [...dashboard, ...appsAndPages, ...uiElements, ...formAndTable, ...chartsAndMaps, ...others]
-export default [...dashboard, ...manage, ...admin, ...channels]
+export default [...dashboard, ...manage, ...system, ...channels]

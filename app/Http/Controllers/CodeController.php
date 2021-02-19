@@ -18,14 +18,12 @@ class CodeController extends Controller
         $items = CommonCode::query()->where('comm2_cd', '$$');
 
         $with = array_filter(explode(',', $request->input('with')));
-        $limit = $request->input('limit', 15);
-        $sort = $request->input('sort', 'comm1_cd');
-        $order = $request->input('order', 'asc');
+        $limit = $request->input('limit', 10);
 
         if ($limit == -1) {
-            $items = $items->with($with)->orderBy($sort, $order)->get();
+            $items = $items->with($with)->get();
         } else {
-            $items = $items->with($with)->orderBy($sort, $order)->paginate($limit);
+            $items = $items->with($with)->paginate($limit);
         }
 
         return CommonCodeResource::collection($items);
