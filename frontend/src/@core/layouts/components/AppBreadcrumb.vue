@@ -12,6 +12,9 @@
     >
       <b-row class="breadcrumbs-top">
         <b-col cols="12">
+          <b-button :to="$route.meta.backTo" variant="outline-dark" class="btn-icon float-left mr-1" v-if="$route.meta.backTo" size="sm">
+            <feather-icon icon="ArrowLeftIcon"></feather-icon>
+          </b-button>
           <h2 class="content-header-title float-left pr-1 mb-0">
             {{ $route.meta.pageTitle }}
           </h2>

@@ -37,6 +37,7 @@ export default [
         name: 'system-codes-edit',
         component: () => import('@/views/system/codes/CodesEdit.vue'),
         meta: {
+          backTo: { name: 'system-codes-grid' },
           pageTitle: 'Edit Code',
           breadcrumb: [
             {
