@@ -1,14 +1,14 @@
 export default [
   {
-    header: 'Administrate',
+    header: 'nav.administrate',
   },
   {
-    title: 'Admins',
+    title: 'nav.admins',
     route: 'admins-admins',
     icon: 'UserIcon',
   },
   {
-    title: 'Codes',
+    title: 'nav.codes',
     route: 'admins-codes',
     icon: 'CodeIcon',
   },

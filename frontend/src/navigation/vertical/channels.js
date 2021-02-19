@@ -1,21 +1,20 @@
 export default [
-    {
-      header: 'Sales Channels',
-    },
-    {
-      title: 'Add Channel',
-      route: 'channels-new',
-      icon: 'PlusIcon',
-    },
-    {
-      title: 'Online Shop',
-      route: 'channels-web',
-      icon: 'ShoppingCartIcon',
-    },
-    {
-      title: 'POS',
-      route: 'channels-pos',
-      icon: 'ShoppingBagIcon',
-    },
-  ]
-  
+  {
+    header: 'nav.channels',
+  },
+  {
+    title: 'nav.add-channel',
+    route: 'channels-new',
+    icon: 'PlusIcon',
+  },
+  {
+    title: 'nav.online-shop',
+    route: 'channels-web',
+    icon: 'ShoppingCartIcon',
+  },
+  {
+    title: 'nav.pos',
+    route: 'channels-pos',
+    icon: 'ShoppingBagIcon',
+  },
+]

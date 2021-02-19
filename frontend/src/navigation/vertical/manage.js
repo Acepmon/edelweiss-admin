@@ -1,50 +1,50 @@
 export default [
   {
-    header: 'Manage',
+    header: 'nav.manage',
   },
   {
-    title: 'Orders',
+    title: 'nav.orders',
     icon: 'DownloadIcon',
     children: [
       {
-        title: 'Orders',
+        title: 'nav.all-orders',
         route: 'manage-orders-all'
       },
       {
-        title: 'Drafts',
+        title: 'nav.drafts',
         route: 'manage-orders-drafts'
       }
     ]
   },
   {
-    title: 'Products',
+    title: 'nav.products',
     icon: 'TagIcon',
     children: [
       {
-        title: 'All Products',
+        title: 'nav.all-products',
         route: 'manage-products-all'
       },
       {
-        title: 'Inventory',
+        title: 'nav.inventory',
         route: 'manage-products-inventory'
       },
       {
-        title: 'Transfers',
+        title: 'nav.transfers',
         route: 'manage-products-transfers'
       },
       {
-        title: 'Collections',
+        title: 'nav.collections',
         route: 'manage-products-collections'
       }
     ]
   },
   {
-    title: 'Customers',
+    title: 'nav.customers',
     route: 'manage-customers',
     icon: 'UsersIcon'
   },
   {
-    title: 'Discounts',
+    title: 'nav.discounts',
     route: 'manage-discounts',
     icon: 'DollarSignIcon'
   },

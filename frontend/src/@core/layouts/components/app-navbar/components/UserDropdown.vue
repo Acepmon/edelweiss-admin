@@ -36,7 +36,7 @@
         icon="UserIcon"
         class="mr-50"
       />
-      <span>Profile</span>
+      <span>{{ $t('nav.profile') }}</span>
     </b-dropdown-item>
     <b-dropdown-item
       :to="{ name: 'pages-account-setting' }"
@@ -47,7 +47,7 @@
         icon="SettingsIcon"
         class="mr-50"
       />
-      <span>Settings</span>
+      <span>{{ $t('nav.settings') }}</span>
     </b-dropdown-item>
 
     <b-dropdown-divider />
@@ -61,7 +61,7 @@
         icon="LogOutIcon"
         class="mr-50"
       />
-      <span>Logout</span>
+      <span>{{ $t('nav.logout') }}</span>
     </b-dropdown-item></b-nav-item-dropdown>
 </template>
 
