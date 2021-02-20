@@ -28,7 +28,7 @@
 
         <product-form-pricing></product-form-pricing>
 
-        <product-form-inventory></product-form-inventory>
+        <product-form-inventory v-model="inventory"></product-form-inventory>
 
         <product-form-seo></product-form-seo>
 
@@ -109,9 +109,6 @@ export default {
         product_title: null,
         product_status_cd: null,
         product_desc: null,
-        product_sku: null,
-        product_barcode: null,
-        product_stock: null,
         product_price: null,
         category_id: null,
         tags: null,
@@ -120,6 +117,12 @@ export default {
         sell_out_of_stock: false,
         has_variants: false,
         is_variant: false,
+      },
+
+      inventory: {
+        sku: null,
+        barcode: null,
+        stock: null,
       },
 
       seo: {
