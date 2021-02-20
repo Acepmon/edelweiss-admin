@@ -177,10 +177,11 @@
 
   "Register": "Register",
   "Reset": "Reset",
+  "Clear": "Clear",
+  "Save": "Save",
+  "Delete": "Delete",
   "Success!": "Success!",
   "Failed!": "Failed!",
-
-  "Clear": "Clear",
 
   "nav": {
     "home": "Home",

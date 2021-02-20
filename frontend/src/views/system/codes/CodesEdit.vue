@@ -26,7 +26,7 @@
       <b-col md="8">
         <b-card>
 
-          <!-- sub codes here -->
+          <codes-sub-codes :primary="$route.params.code"></codes-sub-codes>
 
         </b-card>
       </b-col>
@@ -37,13 +37,15 @@
 <script>
 import { BRow, BCol, BCard } from 'bootstrap-vue'
 import CodesForm from './CodesForm.vue'
+import CodesSubCodes from './CodesSubCodes.vue'
 
 export default {
   components: {
     BRow,
     BCol,
     BCard,
-    CodesForm
+    CodesForm,
+    CodesSubCodes
   }
 }
 </script>
