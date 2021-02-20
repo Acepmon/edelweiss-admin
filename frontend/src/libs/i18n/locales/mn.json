@@ -112,7 +112,6 @@
   "Blog": "Blog",
   "List": "List",
   "Detail": "Detail",
-  "Edit": "Edit",
   "Search": "Search",
   "Menu Levels": "Menu Levels",
   "Menu Level 2.1": "Menu Level 2.1",
@@ -179,6 +178,7 @@
   "Reset": "Reset",
   "Clear": "Цэвэрлэх",
   "Save": "Хадгалах",
+  "Edit": "Засах",
   "Delete": "Устгах",
   "Success!": "Амжилттай!",
   "Failed!": "Амжилтгүй!",
@@ -206,5 +206,18 @@
     "profile": "Профайл",
     "settings": "Тохиргоо",
     "logout": "Гарах"
+  },
+
+  "All": "Бүгд",
+  "Action": "Удирдлага",
+
+  "codes": {
+    "primary-code": "Ахлах Код",
+    "primary-code-desc": "This is your primary common code, you can edit and save here.",
+    "secondary-code": "Туслах Код",
+    "sub-codes": "Дэд Код",
+    "sub-codes-desc": "Your primary codes have sub codes that are more defined.",
+    "label": "Нэршил",
+    "code": "Код"
   }
 }

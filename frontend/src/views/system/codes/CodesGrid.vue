@@ -82,10 +82,10 @@ export default {
       totalRecords: 0,
       rows: [],
       columns: [
-        { label: 'Code', field: 'comm1_cd', sortable: false },
-        { label: 'Label', field: 'comm2_nm', sortable: false },
-        { label: 'Sub Codes', field: 'sub_codes', sortable: false },
-        { label: 'Action', field: 'action', sortable: false },
+        { label: this.$t('codes.primary-code'), field: 'comm1_cd', sortable: false },
+        { label: this.$t('codes.label'), field: 'comm2_nm', sortable: false },
+        { label: this.$t('codes.sub-codes'), field: 'sub_codes', sortable: false },
+        { label: this.$t('Action'), field: 'action', sortable: false },
       ],
 
       serverParams: {

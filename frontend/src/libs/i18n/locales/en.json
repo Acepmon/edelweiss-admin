@@ -112,7 +112,6 @@
   "Blog": "Blog",
   "List": "List",
   "Detail": "Detail",
-  "Edit": "Edit",
   "Search": "Search",
   "Menu Levels": "Menu Levels",
   "Menu Level 2.1": "Menu Level 2.1",
@@ -179,6 +178,7 @@
   "Reset": "Reset",
   "Clear": "Clear",
   "Save": "Save",
+  "Edit": "Edit",
   "Delete": "Delete",
   "Success!": "Success!",
   "Failed!": "Failed!",
@@ -206,5 +206,18 @@
     "profile": "Profile",
     "settings": "Settings",
     "logout": "Logout"
+  },
+
+  "All": "All",
+  "Action": "Action",
+
+  "codes": {
+    "primary-code": "Primary Code",
+    "primary-code-desc": "This is your primary common code, you can edit and save here.",
+    "secondary-code": "Secondary Code",
+    "sub-codes": "Sub Codes",
+    "sub-codes-desc": "Your primary codes have sub codes that are more defined.",
+    "label": "Label",
+    "code": "Code"
   }
 }

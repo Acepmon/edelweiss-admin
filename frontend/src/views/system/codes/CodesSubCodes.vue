@@ -4,17 +4,17 @@
       <b-form @submit.prevent="onSubmit(code)">
         <b-row>
           <b-col cols="5">
-            <b-form-group label="Code" :label-for="'v-code-' + code.comm2_cd">
-              <b-form-input :id="'v-code-' + code.comm2_cd" required placeholder="Code" v-model="code.comm2_cd" disabled />
+            <b-form-group :label="$t('codes.code')" :label-for="'v-code-' + index">
+              <b-form-input :id="'v-code-' + index" required :placeholder="$t('codes.code')" v-model="code.comm2_cd" disabled />
             </b-form-group>
           </b-col>
           <b-col cols="5">
-            <b-form-group label="Label" :label-for="'v-code-' + code.comm2_cd">
-              <b-form-input :id="'v-code-' + code.comm2_cd" required placeholder="Label" v-model="code.comm2_nm" />
+            <b-form-group :label="$t('codes.label')" :label-for="'v-label-' + index">
+              <b-form-input :id="'v-label-' + index" required :placeholder="$t('codes.label')" v-model="code.comm2_nm" />
             </b-form-group>
           </b-col>
           <b-col cols="2">
-            <b-form-group label="Action">
+            <b-form-group :label="$t('Action')">
               <b-button
                 v-ripple.400="'rgba(255, 255, 255, 0.15)'"
                 type="submit"
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { BListGroup, BListGroupItem, BRow, BCol, BFormGroup, BFormInput, BFormCheckbox, BForm, BButton } from 'bootstrap-vue'
+import { BListGroup, BListGroupItem, BRow, BCol, BFormGroup, BFormInput, BForm, BButton } from 'bootstrap-vue'
 import Ripple from 'vue-ripple-directive'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 
@@ -48,7 +48,6 @@ export default {
     BCol,
     BFormGroup,
     BFormInput,
-    BFormCheckbox,
     BForm,
     BButton,
     ToastificationContent

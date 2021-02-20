@@ -5,13 +5,13 @@
       <!-- Primary Code -->
       <b-col cols="12">
         <b-form-group
-          label="Primary Code"
+          :label="$t('codes.primary-code')"
           label-for="v-comm1-cd"
         >
           <b-form-input
             id="v-comm1-cd"
             v-model="code.comm1_cd"
-            placeholder="Primary Code"
+            :placeholder="$t('codes.primary-code')"
             :disabled="code.comm2_cd == '$$'"
             required
           />
@@ -21,13 +21,13 @@
       <!-- Secondary Code -->
       <b-col cols="12">
         <b-form-group
-          label="Secondary Code"
+          :label="$t('codes.secondary-code')"
           label-for="v-comm2-cd"
         >
           <b-form-input
             id="v-comm2-cd"
             v-model="code.comm2_cd"
-            placeholder="Secondary Code"
+            :placeholder="$t('codes.secondary-code')"
             :disabled="code.comm2_cd == '$$'"
             required
           />
@@ -37,13 +37,13 @@
       <!-- Label -->
       <b-col cols="12">
         <b-form-group
-          label="Label"
+          :label="$t('codes.label')"
           label-for="v-label"
         >
           <b-form-input
             id="v-label"
             v-model="code.comm2_nm"
-            placeholder="Label"
+            :placeholder="$t('codes.label')"
             required
           />
         </b-form-group>
