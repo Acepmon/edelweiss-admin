@@ -104,8 +104,26 @@ class CodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $cd1, $cd2)
     {
-        //
+        $item = CommonCode::where('comm1_cd', $cd1)->where('comm2_cd', $cd2)->first();
+
+        if ($item == null) {
+            return response()->json([
+                'result' => 'error',
+                'message' => 'Resource not found',
+            ], 404);
+        }
+
+        if ($cd2 == '$$') {
+            CommonCode::where('comm1_cd', $cd1)->delete();
+        } else {
+            CommonCode::where('comm1_cd', $cd1)->where('comm2_cd', $cd2)->delete();
+        }
+
+        return response()->json([
+            'result' => 'success',
+            'message' => 'Resource deleted'
+        ]);
     }
 }

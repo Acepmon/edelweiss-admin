@@ -54,10 +54,21 @@
         <b-button
           v-ripple.400="'rgba(255, 255, 255, 0.15)'"
           type="submit"
-          variant="primary"
+          variant="success"
           class="mr-1"
         >
+          <feather-icon icon="SaveIcon" class="mr-50"></feather-icon>
           {{ $t('Save') }}
+        </b-button>
+
+        <b-button
+          v-ripple.400="'rgba(255, 255, 255, 0.15)'"
+          variant="outline-danger"
+          class="float-right"
+          @click="onDelete"
+        >
+          <feather-icon icon="Trash2Icon" class="mr-50"></feather-icon>
+          {{ $t('Delete') }}
         </b-button>
       </b-col>
     </b-row>
@@ -134,6 +145,46 @@ export default {
             },
           })
         })
+    },
+
+    onDelete () {
+      this.$bvModal.msgBoxConfirm('Are you sure you want to delete primary code ' + this.code.comm1_cd + ' and related sub codes? This process cannot be reverted.', {
+        title: 'Delete ' + this.code.comm2_nm + '?',
+        size: 'md',
+        okVariant: 'danger',
+        okTitle: 'Delete Code',
+        cancelTitle: 'Cancel',
+        cancelVariant: 'outline-secondary',
+        centered: true
+      })
+      .then(res => {
+        if (res) {
+          this.$http.delete('/api/codes/' + this.primary + '/' + this.secondary, this.code)
+            .then((res) => {
+              this.$toast({
+                component: ToastificationContent,
+                props: {
+                  title: this.$t('Success!'),
+                  icon: 'CheckCircleIcon',
+                  text: 'Deleted code!',
+                  variant: 'success',
+                },
+              })
+              this.$router.push({ name: 'system-codes' })
+            })
+            .catch((err) => {
+              this.$toast({
+                component: ToastificationContent,
+                props: {
+                  title: this.$t('Failed!'),
+                  icon: 'AlertTriangleIcon',
+                  text: err.response.data.message,
+                  variant: 'danger',
+                },
+              })
+            })
+        }
+      })
     }
   },
 

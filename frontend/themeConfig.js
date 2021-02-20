@@ -21,7 +21,7 @@ export const $themeConfig = {
     skin: 'bordered', // light, dark, bordered, semi-dark
     routerTransition: 'fade', // zoom-fade, slide-fade, fade-bottom, fade, zoom-out, none
     type: 'vertical', // vertical, horizontal
-    contentWidth: 'boxed', // full, boxed
+    contentWidth: 'full', // full, boxed
     menu: {
       hidden: false,
       isCollapsed: false,

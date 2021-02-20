@@ -43,6 +43,7 @@ export default [
           breadcrumb: [
             {
               text: 'Codes',
+              to: { name: 'system-codes-grid' }
             },
             {
               text: 'Edit',
