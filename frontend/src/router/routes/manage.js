@@ -69,6 +69,25 @@ export default [
             },
           ],
         },
+      },
+      {
+        path: 'create',
+        name: 'manage-products-create',
+        component: () => import('@/views/manage/products/ProductsCreate.vue'),
+        meta: {
+          backTo: { name: 'manage-products-grid' },
+          pageTitle: 'Add Product',
+          breadcrumb: [
+            {
+              text: 'Products',
+              to: { name: 'manage-products-grid' }
+            },
+            {
+              text: 'Create',
+              active: true
+            }
+          ],
+        },
       }
     ]
   },
