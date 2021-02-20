@@ -1,10 +1,10 @@
 <template>
-  <div>manage products all</div>
+  <div>products grid</div>
 </template>
 
 <script>
 export default {
-  name: 'manage-products-all'
+
 }
 </script>
 

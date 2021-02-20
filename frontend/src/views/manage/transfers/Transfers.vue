@@ -1,10 +1,10 @@
 <template>
-  <div>manage products smart-gifts</div>
+  <div>manage transfers</div>
 </template>
 
 <script>
 export default {
-  name: 'manage-products-smart-gifts'
+  name: 'manage-transfers'
 }
 </script>
 

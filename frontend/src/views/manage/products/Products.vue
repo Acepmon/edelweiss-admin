@@ -1,10 +1,9 @@
 <template>
-  <div>manage products transfers</div>
+  <router-view></router-view>
 </template>
 
 <script>
 export default {
-  name: 'manage-products-transfers'
 }
 </script>
 

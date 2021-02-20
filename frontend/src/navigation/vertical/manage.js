@@ -22,19 +22,19 @@ export default [
     children: [
       {
         title: 'nav.all-products',
-        route: 'manage-products-all'
+        route: 'manage-products'
       },
       {
         title: 'nav.inventory',
-        route: 'manage-products-inventory'
+        route: 'manage-inventory'
       },
       {
         title: 'nav.transfers',
-        route: 'manage-products-transfers'
+        route: 'manage-transfers'
       },
       {
         title: 'nav.collections',
-        route: 'manage-products-collections'
+        route: 'manage-collections'
       }
     ]
   },

@@ -1,10 +1,10 @@
 <template>
-  <div>manage products inventory</div>
+  <div>manage inventory</div>
 </template>
 
 <script>
 export default {
-  name: 'manage-products-inventory'
+  name: 'manage-inventory'
 }
 </script>
 

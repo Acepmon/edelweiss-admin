@@ -51,32 +51,34 @@ export default [
     },
   },
   {
-    path: '/manage/products/all',
-    name: 'manage-products-all',
-    component: () => import('@/views/manage/products/ProductsAll.vue'),
-    meta: {
-      pageTitle: 'Products',
-      breadcrumb: [
-        {
-          text: 'Products',
+    path: '/manage/products',
+    name: 'manage-products',
+    component: () => import('@/views/manage/products/Products.vue'),
+    redirect: { name: 'manage-products-grid' },
+    children: [
+      {
+        path: '',
+        name: 'manage-products-grid',
+        component: () => import('@/views/manage/products/ProductsGrid.vue'),
+        meta: {
+          pageTitle: 'Products',
+          breadcrumb: [
+            {
+              text: 'Products',
+              active: true,
+            },
+          ],
         },
-        {
-          text: 'All Products',
-          active: true,
-        },
-      ],
-    },
+      }
+    ]
   },
   {
-    path: '/manage/products/inventory',
-    name: 'manage-products-inventory',
-    component: () => import('@/views/manage/products/ProductsInventory.vue'),
+    path: '/manage/inventory',
+    name: 'manage-inventory',
+    component: () => import('@/views/manage/inventory/Inventory.vue'),
     meta: {
       pageTitle: 'Inventory',
       breadcrumb: [
-        {
-          text: 'Products',
-        },
         {
           text: 'Inventory',
           active: true,
@@ -85,15 +87,12 @@ export default [
     },
   },
   {
-    path: '/manage/products/transfers',
-    name: 'manage-products-transfers',
-    component: () => import('@/views/manage/products/ProductsTransfers.vue'),
+    path: '/manage/transfers',
+    name: 'manage-transfers',
+    component: () => import('@/views/manage/transfers/Transfers.vue'),
     meta: {
       pageTitle: 'Transfers',
       breadcrumb: [
-        {
-          text: 'Products',
-        },
         {
           text: 'Transfers',
           active: true,
@@ -102,38 +101,26 @@ export default [
     },
   },
   {
-    path: '/manage/products/collections',
-    name: 'manage-products-collections',
-    component: () => import('@/views/manage/products/ProductsCollections.vue'),
-    meta: {
-      pageTitle: 'Collections',
-      breadcrumb: [
-        {
-          text: 'Products',
+    path: '/manage/collections',
+    name: 'manage-collections',
+    component: () => import('@/views/manage/collections/Collections.vue'),
+    redirect: { name: 'manage-collections-grid' },
+    children: [
+      {
+        path: '',
+        name: 'manage-collections-grid',
+        component: () => import('@/views/manage/collections/CollectionsGrid.vue'),
+        meta: {
+          pageTitle: 'Collections',
+          breadcrumb: [
+            {
+              text: 'Collections',
+              active: true,
+            },
+          ],
         },
-        {
-          text: 'Collections',
-          active: true,
-        },
-      ],
-    },
-  },
-  {
-    path: '/manage/products/smart-gifts',
-    name: 'manage-products-smart-gifts',
-    component: () => import('@/views/manage/products/ProductsSmartGifts.vue'),
-    meta: {
-      pageTitle: 'Smart Gifts',
-      breadcrumb: [
-        {
-          text: 'Products',
-        },
-        {
-          text: 'Smart Gifts',
-          active: true,
-        },
-      ],
-    },
+      }
+    ]
   },
   {
     path: '/manage/customers',
