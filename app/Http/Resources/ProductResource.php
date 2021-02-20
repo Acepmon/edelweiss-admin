@@ -24,10 +24,12 @@ class ProductResource extends JsonResource
             'product_stock' => $this->product_stock,
             'product_price' => $this->product_price,
 
+            'product_thumb' => null,
+
             'category_id' => $this->category_id,
             'category_name' => $this->category->name,
 
-            'tags' => explode(',', $this->tags),
+            'tags' => array_filter(explode(',', $this->tags)),
             'charge_tax' => $this->charge_tax,
             'sell_out_of_stock' => $this->sell_out_of_stock,
             'has_variants' => $this->has_variants,
