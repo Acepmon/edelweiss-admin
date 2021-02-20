@@ -17,9 +17,9 @@
 
     <vue-good-table 
       mode="remote"
-      :pagination-options="paginationOptions"
-      :search-options="searchOptions"
-      :select-options="selectOptions"
+      :pagination-options="{ enabled: true }"
+      :search-options="{ enabled: true, externalQuery: filter.search }"
+      :select-options="{ enabled: true, selectOnCheckboxOnly: true }"
       :totalRows="totalRecords"
       :rows="rows"
       :columns="columns"
@@ -27,8 +27,6 @@
       compactMode
       styleClass="vgt-table striped hover pointer"
 
-      @on-row-click="(params) => $emit('on-row-click', params)"
-      @on-row-dblclick="(params) => $emit('on-row-dblclick', params)"
       @on-page-change="onPageChange"
       @on-sort-change="onSortChange"
       @on-column-filter="onColumnFilter"
@@ -66,15 +64,15 @@ import { BImg } from 'bootstrap-vue'
 
 export default {
   components: {
-    BSpinner,
-    VueGoodTable,
-    BImg,
     AppMgmt,
     AppMgmtHeader,
     AppMgmtInputSearch,
     AppMgmtInputDropdown,
     AppMgmtButton,
     AppMgmtGrid,
+    BSpinner,
+    VueGoodTable,
+    BImg,
   },
 
   data () {
@@ -96,18 +94,6 @@ export default {
         { label: 'Title', field: 'coll_title', sortable: false },
         { label: 'Description', field: 'coll_desc', sortable: false },
       ],
-      searchOptions: {
-        enabled: true,
-        trigger: 'enter',
-        externalQuery: this.filter.search
-      },
-      selectOptions: {
-        enabled: true,
-        selectOnCheckboxOnly: true
-      },
-      paginationOptions: {
-        enabled: true
-      },
 
       serverParams: {
         columnFilters: {},
