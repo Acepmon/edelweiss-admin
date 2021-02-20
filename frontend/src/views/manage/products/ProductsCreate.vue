@@ -3,7 +3,6 @@
     <b-row>
       <b-col>
         <b-button variant="secondary">
-          <feather-icon icon="XSquareIcon" class="mr-50"></feather-icon>
           {{ $t('Discard') }}
         </b-button>
 
@@ -19,17 +18,11 @@
     <b-row>
       <b-col cols="12" sm="6" md="8" lg="9">
 
-        <product-form-general></product-form-general>
+        <b-card>
+          <product-input-title v-model="product.product_title"></product-input-title>
 
-        <product-form-media></product-form-media>
-
-        <product-form-pricing></product-form-pricing>
-
-        <product-form-inventory></product-form-inventory>
-
-        <product-form-seo></product-form-seo>
-
-        <product-form-general></product-form-general>
+          <product-input-desc v-model="product.product_desc"></product-input-desc>
+        </b-card>
 
         <product-form-media></product-form-media>
 
@@ -57,9 +50,9 @@
         <hr>
 
         <b-button variant="secondary">
-          <feather-icon icon="XSquareIcon" class="mr-50"></feather-icon>
           {{ $t('Discard') }}
         </b-button>
+
         <b-button type="submit" variant="success" class="float-right">
           <feather-icon icon="SaveIcon" class="mr-50"></feather-icon>
           {{ $t('Save') }}
@@ -74,7 +67,9 @@ import { BCard, BRow, BCol, BForm, BButton, } from 'bootstrap-vue'
 import Ripple from 'vue-ripple-directive'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 
-import ProductFormGeneral from './ProductFormGeneral.vue'
+import ProductInputTitle from './ProductInputTitle.vue'
+import ProductInputDesc from './ProductInputDesc.vue'
+
 import ProductFormMedia from './ProductFormMedia.vue'
 import ProductFormPricing from './ProductFormPricing.vue'
 import ProductFormInventory from './ProductFormInventory.vue'
@@ -92,7 +87,9 @@ export default {
     BButton,
     ToastificationContent,
 
-    ProductFormGeneral,
+    ProductInputTitle,
+    ProductInputDesc,
+
     ProductFormMedia,
     ProductFormPricing,
     ProductFormInventory,
