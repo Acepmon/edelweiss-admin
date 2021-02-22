@@ -4,7 +4,7 @@
       <b-card-title>Inventory</b-card-title>
     </b-card-header>
 
-    <b-card-body>
+    <b-card-body class="border-bottom">
 
       <b-row cols="2">
         <b-col>
@@ -19,9 +19,20 @@
           </b-form-group>
         </b-col>
 
+      </b-row>
+
+    </b-card-body>
+
+    <b-card-header>
+      <b-card-title>Quantity</b-card-title>
+    </b-card-header>
+
+    <b-card-body>
+
+      <b-row cols="2">
         <b-col>
-          <b-form-group label="Quantity" label-for="v-stock">
-            <b-form-input id="v-stock" type="number" placeholder="Quantity here ..." :value="local.stock" @input="handleInput('stock', $event.target.value)" />
+          <b-form-group label="Available" label-for="v-stock">
+            <b-form-input id="v-stock" type="number" placeholder="Available quantity here ..." :value="local.stock" @input="handleInput('stock', $event.target.value)" />
           </b-form-group>
         </b-col>
 
