@@ -40,6 +40,14 @@ class CommonCodeSeeder extends Seeder
             ['comm1_cd' => 'B01', 'comm2_cd' => '10', 'comm2_nm' => 'Normal Page'],
             ['comm1_cd' => 'B01', 'comm2_cd' => '20', 'comm2_nm' => 'Product Collection'],
 
+            ['comm1_cd' => 'B02', 'comm2_cd' => '$$', 'comm2_nm' => 'Page Status'],
+            ['comm1_cd' => 'B02', 'comm2_cd' => '10', 'comm2_nm' => 'Draft'],
+            ['comm1_cd' => 'B02', 'comm2_cd' => '20', 'comm2_nm' => 'Active'],
+
+            ['comm1_cd' => 'B03', 'comm2_cd' => '$$', 'comm2_nm' => 'Menu Status'],
+            ['comm1_cd' => 'B03', 'comm2_cd' => '10', 'comm2_nm' => 'Draft'],
+            ['comm1_cd' => 'B03', 'comm2_cd' => '20', 'comm2_nm' => 'Active'],
+
             ['comm1_cd' => 'C01', 'comm2_cd' => '$$', 'comm2_nm' => 'Product Status'],
             ['comm1_cd' => 'C01', 'comm2_cd' => '10', 'comm2_nm' => 'Draft'],
             ['comm1_cd' => 'C01', 'comm2_cd' => '20', 'comm2_nm' => 'Active'],

@@ -15,6 +15,8 @@ class CommonCode extends Model
 
     public $timestamps = false;
 
+    protected $connection = 'mysql';
+
     public function sub_codes()
     {
         return $this->hasMany('App\Models\CommonCode', 'comm1_cd', 'comm1_cd')->whereNotIn('comm2_cd', ['$$']);

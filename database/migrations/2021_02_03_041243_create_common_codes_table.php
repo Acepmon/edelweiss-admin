@@ -13,7 +13,7 @@ class CreateCommonCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('common_codes', function (Blueprint $table) {
+        Schema::connection('mysql')->create('common_codes', function (Blueprint $table) {
             $table->string('comm1_cd', 100);
             $table->string('comm2_cd', 100);
             $table->string('comm2_nm', 250);
@@ -29,6 +29,6 @@ class CreateCommonCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('common_codes');
+        Schema::connection('mysql')->dropIfExists('common_codes');
     }
 }
