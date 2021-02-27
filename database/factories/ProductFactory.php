@@ -27,13 +27,13 @@ class ProductFactory extends Factory
         $category = Category::inRandomOrder()->first();
 
         return [
-            'product_title' => $this->faker->text(100),
+            'product_title' => $this->faker->text(30),
             'product_status_cd' => $status->comm2_cd,
             'product_desc' => $this->faker->text(500),
             'product_sku' => $this->faker->ean8,
             'product_barcode' => $this->faker->isbn13,
             'product_stock' => $this->faker->randomNumber(2),
-            'product_price' => $this->faker->randomNumber(3),
+            'product_price' => $this->faker->randomNumber(6),
 
             'category_id' => $category->id,
             'tags' => null,

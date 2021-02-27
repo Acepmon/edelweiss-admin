@@ -16,9 +16,9 @@ class CollectionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'coll_title' => $this->coll_title,
-            'coll_desc' => $this->coll_desc,
-            'coll_image' => $this->coll_image,
+            'title' => $this->title,
+            'desc' => $this->desc,
+            'image' => $this->image,
 
             'products' => ProductResource::collection($this->whenLoaded('products')),
             'seo' => new SeoResource($this->whenLoaded('seo')),

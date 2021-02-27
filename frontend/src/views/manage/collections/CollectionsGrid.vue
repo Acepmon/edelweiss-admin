@@ -90,9 +90,9 @@ export default {
       totalRecords: 0,
       rows: [],
       columns: [
-        { label: '', field: 'coll_image', sortable: false, width: '100px' },
-        { label: 'Title', field: 'coll_title', sortable: false },
-        { label: 'Description', field: 'coll_desc', sortable: false },
+        { label: '', field: 'image', sortable: false, width: '100px' },
+        { label: 'Title', field: 'title', sortable: false },
+        { label: 'Description', field: 'desc', sortable: false },
       ],
 
       serverParams: {

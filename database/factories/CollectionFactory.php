@@ -22,9 +22,9 @@ class CollectionFactory extends Factory
     public function definition()
     {
         return [
-            'coll_title' => $this->faker->text(70),
-            'coll_image' => $this->faker->imageUrl(),
-            'coll_desc' => $this->faker->text(200),
+            'title' => $this->faker->text(70),
+            'image' => $this->faker->imageUrl(),
+            'desc' => $this->faker->text(200),
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -18,6 +18,7 @@ class CommonCodeSeeder extends Seeder
         // B - Channels related
         // C - Product related
         // D - Order related
+        // E - UI related
 
         CommonCode::truncate();
         CommonCode::insert([
@@ -93,6 +94,17 @@ class CommonCodeSeeder extends Seeder
             ['comm1_cd' => 'D04', 'comm2_cd' => '10', 'comm2_nm' => 'Open'],
             ['comm1_cd' => 'D04', 'comm2_cd' => '20', 'comm2_nm' => 'Invoice Sent'],
             ['comm1_cd' => 'D04', 'comm2_cd' => '30', 'comm2_nm' => 'Completed'],
+
+            ['comm1_cd' => 'E01', 'comm2_cd' => '$$', 'comm2_nm' => 'UI Layout'],
+            ['comm1_cd' => 'E01', 'comm2_cd' => 'container', 'comm2_nm' => 'Centered'],
+            ['comm1_cd' => 'E01', 'comm2_cd' => 'container-fluid', 'comm2_nm' => 'Fluid'],
+
+            ['comm1_cd' => 'E02', 'comm2_cd' => '$$', 'comm2_nm' => 'UI Grid Columns'],
+            ['comm1_cd' => 'E02', 'comm2_cd' => 'grid-2-columns', 'comm2_nm' => '2 Columns'],
+            ['comm1_cd' => 'E02', 'comm2_cd' => 'grid-3-columns', 'comm2_nm' => '3 Columns'],
+            ['comm1_cd' => 'E02', 'comm2_cd' => 'grid-4-columns', 'comm2_nm' => '4 Columns'],
+            ['comm1_cd' => 'E02', 'comm2_cd' => 'grid-5-columns', 'comm2_nm' => '5 Columns'],
+            ['comm1_cd' => 'E02', 'comm2_cd' => 'grid-6-columns', 'comm2_nm' => '6 Columns'],
         ]);
     }
 }

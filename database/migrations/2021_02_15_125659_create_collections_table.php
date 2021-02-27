@@ -16,9 +16,16 @@ class CreateCollectionsTable extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             
-            $table->string('coll_title');
-            $table->string('coll_image')->nullable();
-            $table->text('coll_desc')->nullable();
+            $table->string('title');
+            $table->string('image')->nullable();
+            $table->text('desc')->nullable();
+
+            $table->string('slug')->nullable();
+
+            // ui configs
+            $table->boolean('ui_show_page_title')->default(true);
+            $table->string('ui_layout')->default('container-fluid'); // E01
+            $table->string('ui_grid_columns')->default('grid-4-columns'); // E02
 
             $table->timestamps();
         });

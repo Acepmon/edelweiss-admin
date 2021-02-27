@@ -17,7 +17,7 @@ class TestProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory()->count(50)->create()->each(function ($product) {
+        Product::factory()->count(200)->create()->each(function ($product) {
             ProductSeo::factory()->state(['product_id' => $product->id])->create();
 
             if ($product->has_variants) {
