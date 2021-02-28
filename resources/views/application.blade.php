@@ -23,6 +23,10 @@
   </div>
 
   <script src="{{ asset(mix('js/app.js')) }}"></script>
+  <script>
+    UPLOADCARE_PUBLIC_KEY = 'c6a85514a4856a3c5ec7';
+    UPLOADCARE_LOCALE = 'en';
+  </script>  
 
 </body>
 </html>
