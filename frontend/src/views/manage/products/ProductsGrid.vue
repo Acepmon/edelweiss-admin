@@ -43,7 +43,8 @@
 
         <!-- Column: Thumbnail -->
         <span v-if="props.column.field == 'product_thumb'">
-          <b-img :src="require('@/assets/images/misc/placeholder.jpg')" thumbnail fluid></b-img>
+          <b-img :src="props.row.product_thumb" thumbnail fluid v-if="props.row.product_thumb.length > 0"></b-img>
+          <b-img :src="require('@/assets/images/misc/placeholder.jpg')" thumbnail fluid v-else></b-img>
         </span>
 
         <!-- Column: Product -->
