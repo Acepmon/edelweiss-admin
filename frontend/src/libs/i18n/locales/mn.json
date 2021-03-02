@@ -190,8 +190,8 @@
     "orders": "Захиалга",
     "all-orders": "Бүх Захиалгууд",
     "drafts": "Драфт",
-    "products": "Бүтээгдэхүүн",
-    "all-products": "Бүх Бүтээгдэхүүн",
+    "products": "Бараа",
+    "all-products": "Бүх Бараа",
     "inventory": "Лангуу",
     "transfers": "Шилжиг",
     "collections": "Коллекц",
@@ -206,7 +206,10 @@
     "pos": "POS",
     "profile": "Профайл",
     "settings": "Тохиргоо",
-    "logout": "Гарах"
+    "logout": "Гарах",
+    "menus": "Цэс",
+    "pages": "Хуудас",
+    "blog": "Блог"
   },
 
   "All": "Бүгд",

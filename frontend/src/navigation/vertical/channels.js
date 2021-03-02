@@ -4,17 +4,29 @@ export default [
   },
   {
     title: 'nav.add-channel',
-    route: 'channels-new',
     icon: 'PlusIcon',
   },
   {
     title: 'nav.online-shop',
-    route: 'channels-web',
     icon: 'ShoppingCartIcon',
+    children: [
+      {
+        title: 'nav.menus',
+      },
+      {
+        title: 'nav.pages',
+      },
+      {
+        title: 'nav.blog',
+      },
+      {
+        title: 'nav.settings',
+      }
+    ]
   },
-  {
-    title: 'nav.pos',
-    route: 'channels-pos',
-    icon: 'ShoppingBagIcon',
-  },
+  // {
+  //   title: 'nav.pos',
+  //   route: 'channels-pos',
+  //   icon: 'ShoppingBagIcon',
+  // },
 ]
