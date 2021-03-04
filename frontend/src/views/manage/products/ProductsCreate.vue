@@ -48,9 +48,7 @@
 
         <product-form-status v-model="product.product_status_cd"></product-form-status>
 
-        <product-form-collection></product-form-collection>
-
-        <product-form-tags></product-form-tags>
+        <product-form-tags v-model="product.tags"></product-form-tags>
 
       </b-col>
     </b-row>
@@ -86,7 +84,6 @@ import ProductFormMedia from './ProductFormMedia.vue'
 import ProductFormInventory from './ProductFormInventory.vue'
 import ProductFormSeo from './ProductFormSeo.vue'
 import ProductFormStatus from './ProductFormStatus.vue'
-import ProductFormCollection from './ProductFormCollection.vue'
 import ProductFormTags from './ProductFormTags.vue'
 
 export default {
@@ -110,7 +107,6 @@ export default {
     ProductFormInventory,
     ProductFormSeo,
     ProductFormStatus,
-    ProductFormCollection,
     ProductFormTags,
   },
 
@@ -126,7 +122,7 @@ export default {
         product_desc: null,
         product_price: null,
         category_id: null,
-        tags: null,
+        tags: [],
 
         charge_tax: false,
         sell_out_of_stock: false,

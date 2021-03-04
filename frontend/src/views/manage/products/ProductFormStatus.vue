@@ -34,18 +34,16 @@
 </template>
 
 <script>
-import { BCard, BCardHeader, BCardBody, BCardTitle, BCardFooter, BButton, BFormGroup, BFormSelect, BFormText } from 'bootstrap-vue'
+import { BCard, BCardHeader, BCardBody, BCardTitle, BFormGroup, BFormSelect, BFormText } from 'bootstrap-vue'
 
 export default {
-  name: 'product-input-title',
+  name: 'product-form-status',
 
   components: {
     BCard,
     BCardHeader,
     BCardBody,
     BCardTitle,
-    BCardFooter,
-    BButton,
     BFormGroup,
     BFormSelect,
     BFormText,
