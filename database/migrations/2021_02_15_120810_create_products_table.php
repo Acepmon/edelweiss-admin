@@ -32,7 +32,6 @@ class CreateProductsTable extends Migration
             $table->boolean('charge_tax')->default(false);
             $table->boolean('sell_out_of_stock')->default(false);
             $table->boolean('has_variants')->default(false);
-            $table->boolean('is_variant')->default(false);
 
             $table->timestamps();
         });

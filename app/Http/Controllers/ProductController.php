@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use App\Models\CommonCode;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -44,7 +45,38 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_title' => 'required|string|max:250',
+            'product_status_cd' => 'required|string',
+
+            'product_desc' => 'nullable|string',
+            'product_sku' => 'nullable|string',
+            'product_barcode' => 'nullable|string',
+            'product_stock' => 'nullable|numeric',
+            'product_price' => 'nullable|numeric',
+            'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'nullable|array',
+
+            'charge_tax' => 'nullable|boolean',
+            'sell_out_of_stock' => 'nullable|boolean',
+            'has_variants' => 'nullable|boolean',
+        ]);
+
+        $item = new Product();
+        $item->product_title = $request->input('product_title');
+        $item->product_status_cd = $request->input('product_status_cd');
+        $item->product_desc = $request->input('product_desc');
+        $item->product_sku = $request->input('product_sku');
+        $item->product_barcode = $request->input('product_barcode');
+        $item->product_stock = $request->input('product_stock');
+        $item->category_id = $request->input('category_id');
+        $item->tags = implode(',', $request->input('tags'));
+        $item->charge_tax = $request->input('charge_tax');
+        $item->sell_out_of_stock = $request->input('sell_out_of_stock');
+        $item->has_variants = $request->input('has_variants');
+        $item->save();
+
+        return new ProductResource($item);
     }
 
     /**

@@ -31,14 +31,14 @@ export default {
 
   props: {
     value: {
-      type: String,
+      type: Number,
       default: null
     }
   },
 
   methods: {
     handleInput (changedValue) {
-      this.$emit('input', changedValue)
+      this.$emit('input', parseInt(changedValue))
     }
   }
 }

@@ -26,7 +26,7 @@
           <product-input-desc v-model="product.product_desc"></product-input-desc>
         </b-card>
 
-        <product-form-media v-model="media"></product-form-media>
+        <product-form-media v-model="medias"></product-form-media>
 
         <b-card no-body>
           <b-card-header>
@@ -183,18 +183,17 @@ export default {
         product_title: null,
         product_status_cd: '10',
         product_desc: null,
-        product_price: null,
+        product_price: 0.00,
         category_id: null,
         tags: [],
 
         product_sku: null,
         product_barcode: null,
-        product_stock: null,
+        product_stock: 0,
 
         charge_tax: false,
         sell_out_of_stock: false,
         has_variants: false,
-        is_variant: false,
       },
 
       seo: {
@@ -203,7 +202,7 @@ export default {
         seo_url: null,
       },
 
-      media: [],
+      medias: [],
 
       variants_options: [
         {
@@ -218,8 +217,27 @@ export default {
 
   methods: {
     onSubmit () {
+      console.log(this.medias)
+      // console.log(this.seo)
+      // console.log(this.variants_options)
+      // console.log(this.variants)
 
-      alert('Submitted')
+      this.$http.post('/api/products', this.product)
+        .then((res) => {
+          let product = res.data.data
+          console.log('product: ', product)
+
+          this.$http.post('/api/products/' + product.id + '/medias', {medias: this.medias})
+            .then((res) => {
+              console.log(res)
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
   },
 

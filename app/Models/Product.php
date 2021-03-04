@@ -16,7 +16,7 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
     public function collections()
@@ -34,20 +34,17 @@ class Product extends Model
         return $this->hasMany('App\Models\ProductVariant');
     }
 
-    public function getThumbnailAttribute()
+    public function medias()
     {
-        $rand = rand(0, 105);
-        return url(asset('images/flowers/' . $rand . '.jpeg'));
+        return $this->hasMany('App\Models\ProductMedia');
     }
 
-    public function getMediasAttribute()
+    public function getThumbnailAttribute()
     {
-        $medias = [];
-        for ($i=0; $i < rand(1, 5); $i++) {
-            $rand = rand(1, 105);
-            $img = url(asset('images/flowers/' . $rand . '.jpeg'));
-            array_push($medias, $img);
+        if ($this->medias()->count() > 0) {
+            return $this->medias()->first()->url;
         }
-        return $medias;
+
+        return url(asset('images/flowers/0.jpeg'));
     }
 }

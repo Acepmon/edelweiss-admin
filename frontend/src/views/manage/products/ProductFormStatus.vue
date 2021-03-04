@@ -11,6 +11,7 @@
           :value="value" 
           @input="handleInput" 
           :options="options"
+          required
         ></b-form-select>
 
         <!-- Draft Status -->

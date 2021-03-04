@@ -10,7 +10,7 @@
     </b-card-header>
     <b-card-body>
 
-      <uploadcare :publicKey="uploadCarePubKey" @success="onSuccess" @error="onError" class="d-inline-block">
+      <uploadcare :publicKey="uploadCarePubKey" @success="onSuccess" @error="onError" class="d-inline-block" :data-do-not-store="true">
         <b-button variant="outline-primary">
           <feather-icon icon="ImageIcon" size="15" class="mr-50"></feather-icon>
           <strong>Add Media</strong>

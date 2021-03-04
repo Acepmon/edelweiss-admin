@@ -6,8 +6,10 @@ use App\Http\Controllers\CodeController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DraftController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PageMetaController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductMediaController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +43,8 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 
-Route::get('products', [ProductController::class, 'index'])->name('products.index');
+Route::apiResource('products', ProductController::class);
+Route::apiResource('products.medias', ProductMediaController::class)->except(['show']);
 
 Route::get('collections', [CollectionController::class, 'index'])->name('collections.index');
 

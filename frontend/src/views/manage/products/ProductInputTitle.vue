@@ -5,6 +5,7 @@
       :value="value" 
       @input="handleInput" 
       placeholder="Title here ..."
+      required
     />
   </b-form-group>
 </template>
