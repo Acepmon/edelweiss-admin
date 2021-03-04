@@ -26,7 +26,11 @@
 
         <product-form-media></product-form-media>
 
-        <product-form-pricing></product-form-pricing>
+        <b-card>
+          <product-input-price v-model="product.product_price"></product-input-price>
+
+          <product-input-tax v-model="product.charge_tax"></product-input-tax>
+        </b-card>
 
         <product-form-inventory v-model="inventory"></product-form-inventory>
 
@@ -69,9 +73,10 @@ import ToastificationContent from '@core/components/toastification/Toastificatio
 
 import ProductInputTitle from './ProductInputTitle.vue'
 import ProductInputDesc from './ProductInputDesc.vue'
+import ProductInputPrice from './ProductInputPrice.vue'
+import ProductInputTax from './ProductInputTax.vue'
 
 import ProductFormMedia from './ProductFormMedia.vue'
-import ProductFormPricing from './ProductFormPricing.vue'
 import ProductFormInventory from './ProductFormInventory.vue'
 import ProductFormSeo from './ProductFormSeo.vue'
 import ProductFormStatus from './ProductFormStatus.vue'
@@ -89,9 +94,10 @@ export default {
 
     ProductInputTitle,
     ProductInputDesc,
+    ProductInputPrice,
+    ProductInputTax,
 
     ProductFormMedia,
-    ProductFormPricing,
     ProductFormInventory,
     ProductFormSeo,
     ProductFormStatus,

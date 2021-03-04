@@ -15,11 +15,11 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::insert([
-            ['name' => 'Preserved Flower'],
-            ['name' => 'Flower Box'],
-            ['name' => 'Bouqeut'],
-            ['name' => 'Postcard'],
-            ['name' => 'Gift'],
+            ['id' => 1, 'name' => 'Preserved Flower'],
+            ['id' => 2, 'name' => 'Flower Box'],
+            ['id' => 3, 'name' => 'Bouqeut'],
+            ['id' => 4, 'name' => 'Postcard'],
+            ['id' => 5, 'name' => 'Gift'],
         ]);
     }
 }
