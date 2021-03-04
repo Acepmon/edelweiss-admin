@@ -40,7 +40,35 @@
           </b-card-body>
         </b-card>
 
-        <product-form-inventory v-model="inventory"></product-form-inventory>
+        <b-card no-body>
+          <b-card-header>
+            <b-card-title>Inventory</b-card-title>
+          </b-card-header>
+
+          <b-card-body class="border-bottom">
+            <b-row cols="2">
+              <b-col>
+                <product-input-sku v-model="product.product_sku"></product-input-sku>
+              </b-col>
+              <b-col>
+                <product-input-barcode v-model="product.product_barcode"></product-input-barcode>
+              </b-col>
+            </b-row>
+
+          </b-card-body>
+
+          <b-card-header>
+            <b-card-title>Quantity</b-card-title>
+          </b-card-header>
+
+          <b-card-body>
+            <b-row cols="2">
+              <b-col>
+                <product-input-stock v-model="product.product_stock"></product-input-stock>
+              </b-col>
+            </b-row>
+          </b-card-body>
+        </b-card>
 
         <b-card no-body>
           <b-card-header>
@@ -58,8 +86,8 @@
             v-if="product.has_variants" 
             :options="variants_options"
             :defaultPrice="product.product_price"
-            :defaultSku="inventory.sku"
-            :defaultBarcode="inventory.barcode"
+            :defaultSku="product.product_sku"
+            :defaultBarcode="product.product_barcode"
           ></product-form-variant-preview>
         </b-card>
 
@@ -104,9 +132,11 @@ import ProductInputDesc from './ProductInputDesc.vue'
 import ProductInputPrice from './ProductInputPrice.vue'
 import ProductInputTax from './ProductInputTax.vue'
 import ProductInputVariant from './ProductInputVariant.vue'
+import ProductInputSku from './ProductInputSku.vue'
+import ProductInputBarcode from './ProductInputBarcode.vue'
+import ProductInputStock from './ProductInputStock.vue'
 
 import ProductFormMedia from './ProductFormMedia.vue'
-import ProductFormInventory from './ProductFormInventory.vue'
 import ProductFormVariantOption from './ProductFormVariantOption.vue'
 import ProductFormVariantPreview from './ProductFormVariantPreview.vue'
 import ProductFormSeo from './ProductFormSeo.vue'
@@ -131,9 +161,11 @@ export default {
     ProductInputPrice,
     ProductInputTax,
     ProductInputVariant,
+    ProductInputSku,
+    ProductInputBarcode,
+    ProductInputStock,
 
     ProductFormMedia,
-    ProductFormInventory,
     ProductFormVariantOption,
     ProductFormVariantPreview,
     ProductFormSeo,
@@ -155,16 +187,14 @@ export default {
         category_id: null,
         tags: [],
 
+        product_sku: null,
+        product_barcode: null,
+        product_stock: null,
+
         charge_tax: false,
         sell_out_of_stock: false,
         has_variants: false,
         is_variant: false,
-      },
-
-      inventory: {
-        sku: null,
-        barcode: null,
-        stock: null,
       },
 
       seo: {
@@ -188,6 +218,7 @@ export default {
 
   methods: {
     onSubmit () {
+
       alert('Submitted')
     }
   },
