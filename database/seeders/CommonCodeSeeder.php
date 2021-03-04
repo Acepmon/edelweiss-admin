@@ -19,6 +19,9 @@ class CommonCodeSeeder extends Seeder
         // C - Product related
         // D - Order related
         // E - UI related
+        // I - Invoice related
+        // P - Payment related
+        // Q - QPay related
 
         CommonCode::truncate();
         CommonCode::insert([
@@ -36,6 +39,10 @@ class CommonCodeSeeder extends Seeder
             ['comm1_cd' => 'A03', 'comm2_cd' => '20', 'comm2_nm' => 'Disabled'],
             ['comm1_cd' => 'A03', 'comm2_cd' => '30', 'comm2_nm' => 'Invited to Create Account'],
             ['comm1_cd' => 'A03', 'comm2_cd' => '40', 'comm2_nm' => 'Declined Account Invitation'],
+
+            ['comm1_cd' => 'A04', 'comm2_cd' => '$$', 'comm2_nm' => 'Address Status'],
+            ['comm1_cd' => 'A04', 'comm2_cd' => '10', 'comm2_nm' => 'Active'],
+            ['comm1_cd' => 'A04', 'comm2_cd' => '20', 'comm2_nm' => 'Disabled'],
 
             ['comm1_cd' => 'B01', 'comm2_cd' => '$$', 'comm2_nm' => 'Page Type'],
             ['comm1_cd' => 'B01', 'comm2_cd' => 'static', 'comm2_nm' => 'Static Page'],
@@ -105,6 +112,50 @@ class CommonCodeSeeder extends Seeder
             ['comm1_cd' => 'E02', 'comm2_cd' => 'grid-4-columns', 'comm2_nm' => '4 Columns'],
             ['comm1_cd' => 'E02', 'comm2_cd' => 'grid-5-columns', 'comm2_nm' => '5 Columns'],
             ['comm1_cd' => 'E02', 'comm2_cd' => 'grid-6-columns', 'comm2_nm' => '6 Columns'],
+
+            ['comm1_cd' => 'P01', 'comm2_cd' => '$$', 'comm2_nm' => 'Гүйлгээ төлөв'],
+            ['comm1_cd' => 'P01', 'comm2_cd' => 'NEW', 'comm2_nm' => 'Гүйлгээ үүсгэгдсэн'],
+            ['comm1_cd' => 'P01', 'comm2_cd' => 'FAILED', 'comm2_nm' => 'Гүйлгээ амжилтгүй'],
+            ['comm1_cd' => 'P01', 'comm2_cd' => 'PAID', 'comm2_nm' => 'Төлөгдсөн'],
+            ['comm1_cd' => 'P01', 'comm2_cd' => 'REFUNDED', 'comm2_nm' => 'Гүйлгээ буцаагдсан'],
+
+            ['comm1_cd' => 'P02', 'comm2_cd' => '$$', 'comm2_nm' => 'Гүйлгээ төрөл'],
+            ['comm1_cd' => 'P02', 'comm2_cd' => 'P2P', 'comm2_nm' => 'Дансны гүйлгээ'],
+            ['comm1_cd' => 'P02', 'comm2_cd' => 'CARD', 'comm2_nm' => 'Картын гүйлгээ'],
+
+            ['comm1_cd' => 'P03', 'comm2_cd' => '$$', 'comm2_nm' => 'Валют'],
+            ['comm1_cd' => 'P03', 'comm2_cd' => 'MNT', 'comm2_nm' => 'Төгрөг'],
+            ['comm1_cd' => 'P03', 'comm2_cd' => 'USD', 'comm2_nm' => 'Америк доллар'],
+            ['comm1_cd' => 'P03', 'comm2_cd' => 'CNY', 'comm2_nm' => 'Юань'],
+            ['comm1_cd' => 'P03', 'comm2_cd' => 'JPY', 'comm2_nm' => 'Иен'],
+            ['comm1_cd' => 'P03', 'comm2_cd' => 'RUB', 'comm2_nm' => 'Рубль'],
+            ['comm1_cd' => 'P03', 'comm2_cd' => 'EUR', 'comm2_nm' => 'Евро'],
+
+            ['comm1_cd' => 'P04', 'comm2_cd' => '$$', 'comm2_nm' => 'Банкны код'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '010000', 'comm2_nm' => 'Монгол банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '020000', 'comm2_nm' => 'Капитал банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '040000', 'comm2_nm' => 'Худалдаа хөгжлийн банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '050000', 'comm2_nm' => 'Хаан банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '150000', 'comm2_nm' => 'Голомт банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '190000', 'comm2_nm' => 'Тээвэр хөгжлийн банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '210000', 'comm2_nm' => 'Ариг банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '220000', 'comm2_nm' => 'Кредит банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '290000', 'comm2_nm' => 'ҮХО банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '300000', 'comm2_nm' => 'Капитрон банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '320000', 'comm2_nm' => 'Хас банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '330000', 'comm2_nm' => 'Чингисхаан банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '340000', 'comm2_nm' => 'Төрийн банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '360000', 'comm2_nm' => 'Хөгжлийн банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '380000', 'comm2_nm' => 'Богд банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '900000', 'comm2_nm' => 'Төрийн сан'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '990000', 'comm2_nm' => 'Мобифинанс'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '991000', 'comm2_nm' => 'М банк'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '993000', 'comm2_nm' => 'Инвэскор ББСБ'],
+            ['comm1_cd' => 'P04', 'comm2_cd' => '100000', 'comm2_nm' => 'Тест банк'],
+
+            ['comm1_cd' => 'P05', 'comm2_cd' => '$$', 'comm2_nm' => 'Татварын код'],
+            ['comm1_cd' => 'P05', 'comm2_cd' => 'CITY_TAX', 'comm2_nm' => 'Нийслэлийн татвар'],
+            ['comm1_cd' => 'P05', 'comm2_cd' => 'VAT', 'comm2_nm' => 'НӨАТ'],
         ]);
     }
 }
