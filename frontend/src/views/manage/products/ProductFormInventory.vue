@@ -14,7 +14,7 @@
         </b-col>
 
         <b-col>
-          <b-form-group label="Barcode" label-for="v-barcode">
+          <b-form-group label="Barcode (ISBN, UPC, GTIN, etc.)" label-for="v-barcode">
             <b-form-input id="v-barcode" placeholder="Barcode here ..." :value="local.barcode" @input="handleInput('barcode', $event)" />
           </b-form-group>
         </b-col>

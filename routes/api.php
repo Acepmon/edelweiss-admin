@@ -8,6 +8,7 @@ use App\Http\Controllers\DraftController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageMetaController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,8 @@ Route::group(['prefix' => 'auth'], function () {
       Route::get('user', [AuthController::class, 'user']);
     });
 });
+
+Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 

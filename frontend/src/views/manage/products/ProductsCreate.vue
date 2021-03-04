@@ -21,6 +21,8 @@
         <b-card>
           <product-input-title v-model="product.product_title"></product-input-title>
 
+          <product-input-category v-model="product.category_id"></product-input-category>
+
           <product-input-desc v-model="product.product_desc"></product-input-desc>
         </b-card>
 
@@ -76,6 +78,7 @@ import Ripple from 'vue-ripple-directive'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 
 import ProductInputTitle from './ProductInputTitle.vue'
+import ProductInputCategory from './ProductInputCategory.vue'
 import ProductInputDesc from './ProductInputDesc.vue'
 import ProductInputPrice from './ProductInputPrice.vue'
 import ProductInputTax from './ProductInputTax.vue'
@@ -99,6 +102,7 @@ export default {
     ToastificationContent,
 
     ProductInputTitle,
+    ProductInputCategory,
     ProductInputDesc,
     ProductInputPrice,
     ProductInputTax,
