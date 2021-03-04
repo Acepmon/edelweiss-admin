@@ -200,6 +200,7 @@ export default {
         seo_title: null,
         seo_desc: null,
         seo_url: null,
+        seo_url_host: 'https://edelweissflower.mn/product/',
       },
 
       medias: [],
@@ -217,17 +218,25 @@ export default {
 
   methods: {
     onSubmit () {
-      console.log(this.medias)
-      // console.log(this.seo)
+      console.log(this.seo)
       // console.log(this.variants_options)
       // console.log(this.variants)
 
       this.$http.post('/api/products', this.product)
         .then((res) => {
           let product = res.data.data
-          console.log('product: ', product)
 
-          this.$http.post('/api/products/' + product.id + '/medias', {medias: this.medias})
+          if (this.medias.length > 0) {
+            this.$http.post('/api/products/' + product.id + '/medias', {medias: this.medias})
+              .then((res) => {
+                console.log(res)
+              })
+              .catch((err) => {
+                console.log(err)
+              })
+          }
+
+          this.$http.post('/api/products/' + product.id + '/seo', this.seo)
             .then((res) => {
               console.log(res)
             })

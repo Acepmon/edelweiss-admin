@@ -10,6 +10,7 @@ class ProductSeo extends Model
     use HasFactory;
 
     protected $table = 'products_seo';
+    protected $fillable = ['product_id','seo_title','seo_desc','seo_url'];
     public $timestamps = false;
 
     public function product()

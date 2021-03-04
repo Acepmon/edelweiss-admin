@@ -10,6 +10,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PageMetaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductMediaController;
+use App\Http\Controllers\ProductSeoController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,7 @@ Route::get('categories', [CategoryController::class, 'index'])->name('categories
 
 Route::apiResource('products', ProductController::class);
 Route::apiResource('products.medias', ProductMediaController::class)->except(['show']);
+Route::apiResource('products.seo', ProductSeoController::class)->except(['show']);
 
 Route::get('collections', [CollectionController::class, 'index'])->name('collections.index');
 

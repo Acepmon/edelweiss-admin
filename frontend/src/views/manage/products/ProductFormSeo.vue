@@ -40,7 +40,7 @@
 
         <b-col>
           <b-form-group label="URL and handle" label-for="v-seo-url">
-            <b-input-group is-text :prepend="host">
+            <b-input-group is-text :prepend="local.seo_url_host">
               <b-form-input 
                 id="v-seo-url" 
                 placeholder="URL handler here ..." 
@@ -84,12 +84,6 @@ export default {
     BCol,
   },
 
-  data () {
-    return {
-      host: 'https://edelweissflower.mn/product/'
-    }
-  },
-
   model: {
     prop: 'value',
     event: 'input'
@@ -104,7 +98,7 @@ export default {
 
   computed: {
     local() {
-      return this.value ? this.value : { seo_title: null, seo_desc: null, seo_url: null }
+      return this.value ? this.value : { seo_title: null, seo_desc: null, seo_url: null, seo_url_host: 'https://edelweissflower.mn/product/' }
     },
   },
 
