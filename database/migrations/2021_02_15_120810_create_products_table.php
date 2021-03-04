@@ -62,7 +62,7 @@ class CreateProductsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('product_id');
-            $table->string('variant_value'); // Example: 'Red, Large, Wool'
+            $table->string('variant_value'); // Example: 'Red / Large / Wool'
             $table->string('variant_image')->nullable();
             $table->string('variant_sku')->nullable();
             $table->string('variant_barcode')->nullable();

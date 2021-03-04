@@ -9,7 +9,7 @@
         </b-col>
 
         <b-col md="4">
-          <b-form-group label-for="option-type">
+          <b-form-group class="mb-0" label-for="option-type">
             <b-form-select
               id="option-type"
               v-model="item.option_type"
@@ -19,7 +19,7 @@
         </b-col>
 
         <b-col md="8">
-          <b-form-group label-for="option-value">
+          <b-form-group class="mb-0" label-for="option-value">
             <b-form-tags
               id="option-value" 
               v-model="item.option_value" 
@@ -37,7 +37,8 @@
 
     <b-button
       v-ripple.400="'rgba(255, 255, 255, 0.15)'"
-      variant="outline-primary"
+      variant="outline-secondary"
+      size="sm"
       @click="repeatAgain"
       v-if="value.length < options.length"
     >
