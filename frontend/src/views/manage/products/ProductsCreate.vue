@@ -26,15 +26,21 @@
 
         <product-form-media></product-form-media>
 
-        <b-card>
-          <product-input-price v-model="product.product_price"></product-input-price>
+        <b-card no-body>
+          <b-card-header>
+            <b-card-title>Pricing</b-card-title>
+          </b-card-header>
 
-          <product-input-tax v-model="product.charge_tax"></product-input-tax>
+          <b-card-body>
+            <product-input-price v-model="product.product_price"></product-input-price>
+
+            <product-input-tax v-model="product.charge_tax"></product-input-tax>
+          </b-card-body>
         </b-card>
 
         <product-form-inventory v-model="inventory"></product-form-inventory>
 
-        <product-form-seo></product-form-seo>
+        <product-form-seo v-model="seo"></product-form-seo>
 
       </b-col>
 
@@ -67,7 +73,7 @@
 </template>
 
 <script>
-import { BCard, BRow, BCol, BForm, BButton, } from 'bootstrap-vue'
+import { BCard, BRow, BCol, BForm, BButton, BCardHeader, BCardBody, BCardTitle } from 'bootstrap-vue'
 import Ripple from 'vue-ripple-directive'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 
@@ -90,6 +96,9 @@ export default {
     BCol,
     BForm,
     BButton,
+    BCardHeader,
+    BCardBody,
+    BCardTitle,
     ToastificationContent,
 
     ProductInputTitle,

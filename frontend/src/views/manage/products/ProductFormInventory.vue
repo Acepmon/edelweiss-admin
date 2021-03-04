@@ -9,13 +9,13 @@
       <b-row cols="2">
         <b-col>
           <b-form-group label="SKU (Stock Keeping Unit)" label-for="v-sku">
-            <b-form-input id="v-sku" placeholder="SKU code here ..." :value="local.sku" @input="handleInput('sku', $event.target.value)" />
+            <b-form-input id="v-sku" placeholder="SKU code here ..." :value="local.sku" @input="handleInput('sku', $event)" />
           </b-form-group>
         </b-col>
 
         <b-col>
           <b-form-group label="Barcode" label-for="v-barcode">
-            <b-form-input id="v-barcode" placeholder="Barcode here ..." :value="local.barcode" @input="handleInput('barcode', $event.target.value)" />
+            <b-form-input id="v-barcode" placeholder="Barcode here ..." :value="local.barcode" @input="handleInput('barcode', $event)" />
           </b-form-group>
         </b-col>
 
@@ -32,7 +32,7 @@
       <b-row cols="2">
         <b-col>
           <b-form-group label="Available" label-for="v-stock">
-            <b-form-input id="v-stock" type="number" placeholder="Available quantity here ..." :value="local.stock" @input="handleInput('stock', $event.target.value)" />
+            <b-form-input id="v-stock" type="number" placeholder="Available quantity here ..." :value="local.stock" @input="handleInput('stock', $event)" />
           </b-form-group>
         </b-col>
 
@@ -70,7 +70,12 @@ export default {
     event: 'input'
   },
 
-  props: ['value'],
+  props: {
+    value: {
+      required: true,
+      type: Object
+    }
+  },
 
   computed: {
     local() {
@@ -80,7 +85,9 @@ export default {
 
   methods: {
     handleInput (key, val) {
-      this.$emit('input', tap(cloneDeep(this.local), v => set(v, key, val)))
+      let keyVal = {}
+      keyVal[key] = val
+      this.$emit('input', { ...this.local, ...keyVal })
     }
   }
 }
