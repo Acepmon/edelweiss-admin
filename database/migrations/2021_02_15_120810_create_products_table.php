@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->double('product_price', 10, 2)->default(0.00);
 
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->string('tags')->nullable();
+            $table->string('tags')->nullable(); // String separated by comma > Array
 
             $table->boolean('charge_tax')->default(false);
             $table->boolean('sell_out_of_stock')->default(false);
@@ -35,6 +35,18 @@ class CreateProductsTable extends Migration
             $table->boolean('is_variant')->default(false);
 
             $table->timestamps();
+        });
+
+        Schema::create('products_medias', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('product_id');
+
+            $table->string('name');
+            $table->string('uuid');
+            $table->String('type');
+            $table->string('url');
+            $table->string('original');
+            $table->bigInteger('size');
         });
 
         Schema::create('products_seo', function (Blueprint $table) {
@@ -50,12 +62,21 @@ class CreateProductsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('product_id');
-            $table->string('variant_type'); // C02
-            $table->string('variant_title');
+            $table->string('variant_value'); // Example: 'Red, Large, Wool'
+            $table->string('variant_image')->nullable();
             $table->string('variant_sku')->nullable();
+            $table->string('variant_barcode')->nullable();
 
-            $table->bigInteger('variant_stock')->default(0);
+            $table->bigInteger('variant_quantity')->default(0);
             $table->double('variant_price', 10, 2)->default(0.00);
+        });
+
+        Schema::create('products_variants_options', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('product_id');
+            $table->string('option_type'); // C02
+            $table->string('option_value');
         });
 
         Schema::create('products_channels', function (Blueprint $table) {
@@ -74,8 +95,10 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('products');
+        Schema::dropIfExists('products_medias');
         Schema::dropIfExists('products_seo');
         Schema::dropIfExists('products_variants');
+        Schema::dropIfExists('products_variants_options');
         Schema::dropIfExists('products_channels');
     }
 }

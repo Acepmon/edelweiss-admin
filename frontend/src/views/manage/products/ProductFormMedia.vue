@@ -25,7 +25,7 @@
 
           <b-media-body>
             <h5 class="mt-0 font-weight-bold">{{ item.name }} </h5>
-            <p class="text-muted my-0">Cropped: <a :href="item.cdnUrl" target="_blank">{{ item.cdnUrl }}</a></p>
+            <p class="text-muted my-0">Modified: <a :href="item.cdnUrl" target="_blank">{{ item.cdnUrl }}</a></p>
             <p class="text-muted my-0">Original: <a :href="item.originalUrl" target="_blank">{{ item.originalUrl }}</a></p>
           </b-media-body>
 

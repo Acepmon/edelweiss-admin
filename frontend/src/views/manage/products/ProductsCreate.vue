@@ -42,6 +42,20 @@
 
         <product-form-inventory v-model="inventory"></product-form-inventory>
 
+        <b-card no-body>
+          <b-card-header>
+            <b-card-title>Variants</b-card-title>
+          </b-card-header>
+
+          <b-card-body>
+            <product-input-variant v-model="product.has_variants"></product-input-variant>
+          </b-card-body>
+
+          <product-form-variant-option v-model="variants_options" v-if="product.has_variants"></product-form-variant-option>
+
+          <product-form-variant v-model="variants" v-if="product.has_variants"></product-form-variant>
+        </b-card>
+
         <product-form-seo v-model="seo"></product-form-seo>
 
       </b-col>
@@ -82,9 +96,12 @@ import ProductInputCategory from './ProductInputCategory.vue'
 import ProductInputDesc from './ProductInputDesc.vue'
 import ProductInputPrice from './ProductInputPrice.vue'
 import ProductInputTax from './ProductInputTax.vue'
+import ProductInputVariant from './ProductInputVariant.vue'
 
 import ProductFormMedia from './ProductFormMedia.vue'
 import ProductFormInventory from './ProductFormInventory.vue'
+import ProductFormVariantOption from './ProductFormVariantOption.vue'
+import ProductFormVariant from './ProductFormVariant.vue'
 import ProductFormSeo from './ProductFormSeo.vue'
 import ProductFormStatus from './ProductFormStatus.vue'
 import ProductFormTags from './ProductFormTags.vue'
@@ -106,9 +123,12 @@ export default {
     ProductInputDesc,
     ProductInputPrice,
     ProductInputTax,
+    ProductInputVariant,
 
     ProductFormMedia,
     ProductFormInventory,
+    ProductFormVariantOption,
+    ProductFormVariant,
     ProductFormSeo,
     ProductFormStatus,
     ProductFormTags,
@@ -147,6 +167,13 @@ export default {
       },
 
       media: [],
+
+      variants_options: [
+        {
+          option_type: 'color',
+          option_value: []
+        }
+      ],
 
       variants: []
     }
