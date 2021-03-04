@@ -46,7 +46,7 @@
 
       <b-col cols="12" sm="6" md="4" lg="3">
 
-        <product-form-status></product-form-status>
+        <product-form-status v-model="product.product_status_cd"></product-form-status>
 
         <product-form-collection></product-form-collection>
 
@@ -122,7 +122,7 @@ export default {
     return {
       product: {
         product_title: null,
-        product_status_cd: null,
+        product_status_cd: '10',
         product_desc: null,
         product_price: null,
         category_id: null,

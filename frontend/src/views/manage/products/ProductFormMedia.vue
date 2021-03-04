@@ -9,8 +9,6 @@
       />
     </b-card-header>
     <b-card-body>
-      
-      
 
       <b-row cols="2" cols-md="4" cols-lg="6">
         <b-col v-for="(item, index) in value" :key="index">
