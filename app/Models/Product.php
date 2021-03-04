@@ -29,6 +29,11 @@ class Product extends Model
         return $this->hasOne('App\Models\ProductSeo');
     }
 
+    public function options()
+    {
+        return $this->hasMany('App\Models\ProductVariantOption');
+    }
+
     public function variants()
     {
         return $this->hasMany('App\Models\ProductVariant');

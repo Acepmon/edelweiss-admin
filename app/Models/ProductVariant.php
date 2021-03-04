@@ -11,15 +11,19 @@ class ProductVariant extends Model
 
     protected $table = 'products_variants';
     protected $primaryKey = 'id';
+    protected $fillable = [
+        'product_id', 
+        'variant_value',
+        'variant_image',
+        'variant_sku',
+        'variant_barcode',
+        'variant_quantity',
+        'variant_price',
+    ];
     public $timestamps = false;
 
     public function product()
     {
         return $this->belongsTo('App\Models\Product');
-    }
-
-    public function type()
-    {
-        return $this->belongsTo('App\Models\CommonCode', 'variant_type', 'comm2_cd')->whereNotIn('comm2_cd', ['$$'])->where('comm1_cd', 'C02');
     }
 }

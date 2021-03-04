@@ -5,6 +5,7 @@
       :value="value" 
       @input="handleInput" 
       :options="options"
+      required
     ></b-form-select>
   </b-form-group>
 </template>

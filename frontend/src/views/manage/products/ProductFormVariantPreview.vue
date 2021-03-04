@@ -92,7 +92,7 @@ export default {
 
     defaultPrice: {
       required: false,
-      type: String,
+      type: Number,
     },
 
     defaultSku: {

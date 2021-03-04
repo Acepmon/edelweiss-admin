@@ -218,14 +218,14 @@ export default {
 
   methods: {
     onSubmit () {
-      console.log(this.seo)
-      // console.log(this.variants_options)
+      console.log(this.variants_options)
       // console.log(this.variants)
 
       this.$http.post('/api/products', this.product)
         .then((res) => {
           let product = res.data.data
 
+          // Save Media
           if (this.medias.length > 0) {
             this.$http.post('/api/products/' + product.id + '/medias', {medias: this.medias})
               .then((res) => {
@@ -236,6 +236,7 @@ export default {
               })
           }
 
+          // Save SEO
           this.$http.post('/api/products/' + product.id + '/seo', this.seo)
             .then((res) => {
               console.log(res)
@@ -243,6 +244,28 @@ export default {
             .catch((err) => {
               console.log(err)
             })
+
+          // Save Variant Options
+          if (this.product.has_variants) {
+            this.$http.post('/api/products/' + product.id + '/options', {options: this.variants_options})
+              .then((res) => {
+                console.log(res)
+              })
+              .catch((err) => {
+                console.log(err)
+              })
+          }
+
+          // Save Variants
+          if (this.product.has_variants) {
+            this.$http.post('/api/products/' + product.id + '/variants', {variants: this.variants})
+              .then((res) => {
+                console.log(res)
+              })
+              .catch((err) => {
+                console.log(err)
+              })
+          }
         })
         .catch((err) => {
           console.log(err)
