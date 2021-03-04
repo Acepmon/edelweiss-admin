@@ -24,7 +24,7 @@
           <product-input-desc v-model="product.product_desc"></product-input-desc>
         </b-card>
 
-        <product-form-media></product-form-media>
+        <product-form-media v-model="media"></product-form-media>
 
         <b-card no-body>
           <b-card-header>
@@ -141,6 +141,8 @@ export default {
         seo_desc: null,
         seo_url: null,
       },
+
+      media: [],
 
       variants: []
     }

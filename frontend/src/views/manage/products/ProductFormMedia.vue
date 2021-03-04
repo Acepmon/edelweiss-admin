@@ -2,43 +2,47 @@
   <b-card no-body>
     <b-card-header>
       <b-card-title>Media</b-card-title>
-      <feather-icon
+      <!-- <feather-icon
         icon="MoreVerticalIcon"
         size="18"
         class="cursor-pointer"
-      />
+      /> -->
     </b-card-header>
     <b-card-body>
 
-      <b-row cols="2" cols-md="4" cols-lg="6">
-        <b-col v-for="(item, index) in value" :key="index">
-          <b-card no-body :img-src="item.image" img-top>
-            <b-card-body class="p-1 text-nowrap text-truncate">
-              <!-- <b-button variant="flat-dark" class="btn-icon float-right" size="sm">
-                <feather-icon icon="XIcon"></feather-icon>
-              </b-button> -->
+      <uploadcare :publicKey="uploadCarePubKey" @success="onSuccess" @error="onError" class="d-inline-block">
+        <b-button variant="outline-primary">
+          <feather-icon icon="ImageIcon" size="15" class="mr-50"></feather-icon>
+          <strong>Add Media</strong>
+        </b-button>
+      </uploadcare>
 
-              <span class="text-dark" style="line-height: 2;">{{ item.name }}</span>
-            </b-card-body>
-          </b-card>
-        </b-col>
-        
-        <b-col>
-          <uploadcare :publicKey="uploadCarePubKey" @success="onSuccess" @error="onError">
-            <b-card class="border border-2 text-center cursor-pointer" style="border-style: dashed !important">
-              <feather-icon icon="ImageIcon" size="25" class="m-1"></feather-icon><br>
-              <strong>Add Media</strong>
-            </b-card>
-          </uploadcare>
-        </b-col>
-      </b-row>
+      <ul class="list-unstyled">
+        <b-media v-for="(item, index) in value" :key="index" no-body class="border-bottom py-1">
+          <b-media-aside>
+            <b-img :src="item.cdnUrl" thumbnail fluid width="150"></b-img>
+          </b-media-aside>
+
+          <b-media-body>
+            <h5 class="mt-0 font-weight-bold">{{ item.name }} </h5>
+            <p class="text-muted my-0">Cropped: <a :href="item.cdnUrl" target="_blank">{{ item.cdnUrl }}</a></p>
+            <p class="text-muted my-0">Original: <a :href="item.originalUrl" target="_blank">{{ item.originalUrl }}</a></p>
+          </b-media-body>
+
+          <b-media-aside>
+            <b-button @click="value.splice(index, 1)" variant="flat-dark" class="btn-icon" size="sm">
+              <feather-icon icon="XIcon"></feather-icon>
+            </b-button>
+          </b-media-aside>
+        </b-media>
+      </ul>
 
     </b-card-body>
   </b-card>
 </template>
 
 <script>
-import { BCard, BCardHeader, BCardBody, BCardTitle, BCardFooter, BButton } from 'bootstrap-vue'
+import { BCard, BCardHeader, BCardBody, BCardTitle, BCardFooter, BButton, BMedia, BMediaAside, BMediaBody, BImg } from 'bootstrap-vue'
 import { BRow, BCol } from 'bootstrap-vue'
 import { useInputImageRenderer } from '@core/comp-functions/forms/form-utils'
 import { ref } from '@vue/composition-api'
@@ -54,6 +58,10 @@ export default {
     BCardTitle,
     BCardFooter,
     BButton,
+    BMedia,
+    BMediaAside,
+    BMediaBody,
+    BImg,
 
     BRow,
     BCol,
@@ -68,8 +76,8 @@ export default {
 
   props: {
     value: {
-      type: Array,
-      default: () => []
+      required: true,
+      type: Array
     }
   },
 
@@ -93,10 +101,7 @@ export default {
 
     onSuccess (val) {
       console.log(val)
-      this.value.push({
-        image: val.cdnUrl,
-        name: val.name
-      })
+      this.value.push(val)
     },
 
     onError (error) {
