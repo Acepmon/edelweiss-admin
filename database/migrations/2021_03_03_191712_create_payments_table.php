@@ -19,11 +19,11 @@ class CreatePaymentsTable extends Migration
             $table->string('payment_id')->primary();
             $table->string('payment_status'); // P01
             $table->timestamp('payment_date');
-            $table->double('payment_fee');
+            $table->double('trx_fee');
             $table->double('payment_amount');
             $table->string('payment_currency'); // P03
             $table->string('payment_wallet');
-            $table->string('transaction_type'); // P02
+            $table->string('payment_type'); // P02
         });
     }
 

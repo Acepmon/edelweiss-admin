@@ -30,4 +30,9 @@ class Invoice extends Model
     {
         return $this->hasMany(Payment::class, 'invoice_no');
     }
+
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'invoice_no');
+    }
 }

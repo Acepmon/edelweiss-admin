@@ -15,7 +15,8 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('email');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('phone_number')->nullable();
@@ -40,8 +41,7 @@ class CreateCustomersTable extends Migration
 
             $table->string('city')->nullable();
             $table->string('district')->nullable();
-            $table->string('street')->nullable();
-            $table->string('building')->nullable();
+            $table->string('khoroo')->nullable();
             $table->string('address')->nullable();
             $table->string('zipcode')->nullable();
             $table->string('longitude')->nullable();

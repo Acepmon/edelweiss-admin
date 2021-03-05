@@ -33,7 +33,7 @@ class ProductFactory extends Factory
             'product_sku' => $this->faker->ean8,
             'product_barcode' => $this->faker->isbn13,
             'product_stock' => $this->faker->randomNumber(2),
-            'product_price' => $this->faker->randomNumber(6),
+            'product_price' => $this->faker->randomNumber(3),
 
             'category_id' => $category->id,
             'tags' => null,

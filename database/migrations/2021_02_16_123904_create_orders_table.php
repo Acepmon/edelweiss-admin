@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('payment_status_cd'); // authorized, paid, partially refunded, partially paid, pending, refunded, unpaid, voided
             $table->string('fulfillment_status_cd'); // fulfilled, unfulfilled, partially fulfilled, scheduled
             $table->unsignedBigInteger('customer_id')->nullable();
+            $table->string('invoice_no')->nullable();
 
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
@@ -38,6 +39,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->bigInteger('quantity');
             $table->double('price', 10, 2);
+            $table->double('total', 10, 2);
         });
 
         Schema::create('orders_shipping', function (Blueprint $table) {
@@ -47,13 +49,16 @@ class CreateOrdersTable extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('company')->nullable();
+            $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('address1')->nullable();
-            $table->string('address2')->nullable();
+
             $table->string('city')->nullable();
-            $table->string('country')->nullable();
-            $table->string('region')->nullable();
-            $table->string('zip_code')->nullable();
+            $table->string('district')->nullable();
+            $table->string('khoroo')->nullable();
+            $table->string('address')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
         });
 
         Schema::create('orders_billing', function (Blueprint $table) {
@@ -63,13 +68,16 @@ class CreateOrdersTable extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('company')->nullable();
+            $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('address1')->nullable();
-            $table->string('address2')->nullable();
+
             $table->string('city')->nullable();
-            $table->string('country')->nullable();
-            $table->string('region')->nullable();
-            $table->string('zip_code')->nullable();
+            $table->string('district')->nullable();
+            $table->string('khoroo')->nullable();
+            $table->string('address')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
         });
     }
 

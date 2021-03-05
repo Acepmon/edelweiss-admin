@@ -22,13 +22,11 @@ class ProductVariantFactory extends Factory
      */
     public function definition()
     {
-        $variantType = CommonCode::whereNotIn('comm2_cd', ['$$'])->where('comm1_cd', 'C02')->inRandomOrder()->first();
-
         return [
-            'variant_type' => $variantType->comm2_cd,
-            'variant_title' => $this->faker->text(10),
+            'variant_value' => $this->faker->text(5),
             'variant_sku' => $this->faker->ean8,
-            'variant_stock' => $this->faker->randomNumber(2),
+            'variant_barcode' => $this->faker->isbn13,
+            'variant_quantity' => $this->faker->randomNumber(2),
             'variant_price' => $this->faker->randomNumber(3),
         ];
     }

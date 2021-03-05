@@ -15,8 +15,9 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('prefix')->default('');
+            $table->string('prefix')->default('INV-');
             $table->string('number_sequence')->default('000001');
+            $table->integer('sequence_character')->default(6);
             $table->string('tax_org_register')->nullable();
 
             // The association
@@ -53,6 +54,7 @@ class CreateInvoicesTable extends Migration
             // QR Code
             $table->string('qr_text')->nullable();
             $table->text('qr_image')->nullable();
+            $table->text('urls')->nullable();
 
             $table->timestamps();
         });
