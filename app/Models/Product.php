@@ -50,7 +50,7 @@ class Product extends Model
             return $this->medias()->first()->url;
         }
 
-        return url(asset('images/flowers/0.jpeg'));
+        return url(asset('static/images/flowers/0.jpeg'));
     }
 
     public function fbt()
