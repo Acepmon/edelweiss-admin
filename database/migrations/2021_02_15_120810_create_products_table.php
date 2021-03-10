@@ -84,6 +84,13 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('channel_key');
         });
+
+        Schema::create('products_fbt', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('fbt_product_id');
+        });
     }
 
     /**
@@ -99,5 +106,6 @@ class CreateProductsTable extends Migration
         Schema::dropIfExists('products_variants');
         Schema::dropIfExists('products_variants_options');
         Schema::dropIfExists('products_channels');
+        Schema::dropIfExists('products_fbt');
     }
 }

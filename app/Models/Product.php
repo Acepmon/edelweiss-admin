@@ -52,4 +52,9 @@ class Product extends Model
 
         return url(asset('images/flowers/0.jpeg'));
     }
+
+    public function fbt()
+    {
+        return $this->belongsToMany(Product::class, 'products_fbt', 'product_id', 'fbt_product_id');
+    }
 }

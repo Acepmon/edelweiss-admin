@@ -25,6 +25,11 @@ class TestProductSeeder extends Seeder
                     'product_id' => $product->id
                 ])->create();
             }
+
+            if (rand(0, 1)) {
+                $fbt = Product::inRandomOrder()->take(rand(1, 2))->get()->pluck('id')->toArray();
+                $product->fbt()->attach($fbt);
+            }
         });
     }
 }
