@@ -35,6 +35,10 @@ export default [
       {
         title: 'nav.collections',
         route: 'manage-collections'
+      },
+      {
+        title: 'nav.categories',
+        route: 'manage-categories'
       }
     ]
   },

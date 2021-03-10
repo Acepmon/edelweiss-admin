@@ -15,7 +15,7 @@
       <b-col
         lg="8"
         class="d-none d-lg-flex align-items-center p-5"
-        style="background-image: url('/images/login-background.png'); background-size: auto 100%; background-position: center center; background-repeat: no-repeat;"
+        :style="backStyle"
       >
         <b-link class="w-100 d-lg-flex align-items-center justify-content-center">
           <vuexy-logo />
@@ -217,6 +217,12 @@ export default {
       password: 'admin',
       userEmail: 'admin@demo.com',
       sideImg: require('@/assets/images/pages/login-v2.svg'),
+      backStyle: {
+        'background-image': 'url(' + require('@/assets/images/pages/login-background.png') + ')',
+        'background-size': 'auto 100%',
+        'background-position': 'center center',
+        'background-repeat': 'no-repeat'
+      },
 
       // validation rules
       required,
@@ -234,7 +240,7 @@ export default {
         return this.sideImg
       }
       return this.sideImg
-    },
+    }
   },
   methods: {
     login() {

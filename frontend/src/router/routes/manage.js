@@ -142,6 +142,28 @@ export default [
     ]
   },
   {
+    path: '/manage/categories',
+    name: 'manage-categories',
+    component: () => import('@/views/manage/categories/Categories.vue'),
+    redirect: { name: 'manage-categories-grid' },
+    children: [
+      {
+        path: '',
+        name: 'manage-categories-grid',
+        component: () => import('@/views/manage/categories/CategoriesGrid.vue'),
+        meta: {
+          pageTitle: 'Categories',
+          breadcrumb: [
+            {
+              text: 'Categories',
+              active: true,
+            },
+          ],
+        },
+      }
+    ]
+  },
+  {
     path: '/manage/customers',
     name: 'manage-customers',
     component: () => import('@/views/manage/Customers.vue'),
