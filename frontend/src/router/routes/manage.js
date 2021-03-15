@@ -185,8 +185,13 @@ export default [
         name: 'manage-categories-edit',
         component: () => import('@/views/manage/categories/CategoriesEdit.vue'),
         meta: {
+          backTo: { name: 'manage-categories-grid' },
           pageTitle: 'Edit Category',
           breadcrumb: [
+            {
+              text: 'Categories',
+              to: { name: 'manage-categories-grid' }
+            },
             {
               text: 'Edit Category',
               active: true,

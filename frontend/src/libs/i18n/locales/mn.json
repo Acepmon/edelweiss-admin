@@ -226,5 +226,11 @@
     "sub-codes-desc": "Your primary codes have sub codes that are more defined.",
     "label": "Нэршил",
     "code": "Код"
+  },
+
+  "category": {
+    "name": "Category Name",
+    "image": "Image URL",
+    "parent": "Parent Category"
   }
 }
