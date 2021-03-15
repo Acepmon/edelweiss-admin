@@ -19,7 +19,7 @@
       mode="remote"
       :pagination-options="{ enabled: true }"
       :search-options="{ enabled: true, externalQuery: filter.search }"
-      :select-options="{ enabled: true, selectOnCheckboxOnly: true }"
+      :select-options="{ enabled: false }"
       :totalRows="totalRecords"
       :rows="rows"
       :columns="columns"
@@ -43,17 +43,45 @@
 
         <!-- Column: Image -->
         <span v-if="props.column.field == 'image'">
-          <b-img :src="props.row.image" :blank-src="require('@/assets/images/misc/placeholder.jpg')" thumbnail fluid></b-img>
+          <b-img-lazy :src="props.row.image || require('@/assets/images/misc/placeholder.jpg')" thumbnail fluid></b-img-lazy>
         </span>
 
         <!-- Column: Name -->
         <span v-if="props.column.field == 'name'">
           <h5 class="font-weight-bold">{{ props.row.name }}</h5>
-          <span><strong>{{ props.row.products }}</strong> products</span>
         </span>
+
+        <!-- Column: Products -->
+        <span v-if="props.column.field == 'products'">
+          <b-button size="sm" variant="outline-dark" v-b-modal.products-modal @click="toggleProductsDialog(props.row.id)"><strong>{{ props.row.products }}</strong> {{ $t('products') }}</b-button>
+        </span>
+
+        <!-- Column: Action -->
+        <div v-if="props.column.field == 'action'">
+          <b-button :to="{ name: 'manage-categories-edit', params: {category: props.row.id} }" variant="outline-dark" size="sm">
+            <feather-icon icon="EditIcon" class="mr-50"></feather-icon>
+            {{ $t('Edit') }}
+          </b-button>
+        </div>
 
       </template>
     </vue-good-table>
+
+    <b-modal id="products-modal" title="Products" scrollable ok-only>
+      <ul class="list-unstyled">
+        <b-media tag="li" class="my-1" v-for="(product, index) in products" :key="index">
+          <template #aside>
+            <b-img-lazy :src="product.product_thumb || require('@/assets/images/misc/placeholder.jpg')" thumbnail fluid width="100"></b-img-lazy>
+          </template>
+
+          <router-link tag="a" :to="{ name: 'manage-products-edit', params: {product: product.id} }" class="mt-0 mb-0 d-block">
+            {{ product.product_title }}
+          </router-link>
+
+          <product-status :code="product.product_status_cd" :label="product.product_status_label"></product-status>
+        </b-media>
+      </ul>
+    </b-modal>
   </app-mgmt>
 </template>
 
@@ -66,7 +94,8 @@ import AppMgmtButton from '@/@core/components/app-mgmt/AppMgmtButton.vue'
 import AppMgmtGrid from '@/@core/components/app-mgmt/AppMgmtGrid.vue'
 import { BSpinner } from 'bootstrap-vue'
 import { VueGoodTable } from 'vue-good-table'
-import { BImg } from 'bootstrap-vue'
+import { BImg, BImgLazy, BButton, VBModal, BMedia } from 'bootstrap-vue'
+import ProductStatus from '../products/ProductStatus.vue'
 
 export default {
   components: {
@@ -79,6 +108,11 @@ export default {
     BSpinner,
     VueGoodTable,
     BImg,
+    BImgLazy,
+    BButton,
+    VBModal,
+    BMedia,
+    ProductStatus
   },
 
   data () {
@@ -98,6 +132,8 @@ export default {
       columns: [
         { label: '', field: 'image', sortable: false, width: '100px' },
         { label: 'Name', field: 'name', sortable: false },
+        { label: 'Products', field: 'products', sortable: false },
+        { label: 'Action', field: 'action', sortable: false },
       ],
 
       serverParams: {
@@ -109,7 +145,9 @@ export default {
         page: 1, 
         limit: 10,
         search: null
-      }
+      },
+
+      products: []
     }
   },
 
@@ -165,6 +203,15 @@ export default {
 
     onCreate() {
       // route to collection create page
+    },
+
+    toggleProductsDialog (categoryId) {
+      this.products = []
+      this.$http.get('/api/categories/' + categoryId + '/products')
+        .then(res => {
+          this.products = res.data.data
+          console.log(res.data)
+        })
     }
   },
 

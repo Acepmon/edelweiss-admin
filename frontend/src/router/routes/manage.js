@@ -88,6 +88,25 @@ export default [
             }
           ],
         },
+      },
+      {
+        path: ':product',
+        name: 'manage-products-edit',
+        component: () => import('@/views/manage/products/ProductsEdit.vue'),
+        meta: {
+          backTo: { name: 'manage-products-grid' },
+          pageTitle: 'Add Product',
+          breadcrumb: [
+            {
+              text: 'Products',
+              to: { name: 'manage-products-grid' }
+            },
+            {
+              text: 'Edit Product',
+              active: true
+            }
+          ],
+        },
       }
     ]
   },
@@ -156,6 +175,20 @@ export default [
           breadcrumb: [
             {
               text: 'Categories',
+              active: true,
+            },
+          ],
+        },
+      },
+      {
+        path: ':category',
+        name: 'manage-categories-edit',
+        component: () => import('@/views/manage/categories/CategoriesEdit.vue'),
+        meta: {
+          pageTitle: 'Edit Category',
+          breadcrumb: [
+            {
+              text: 'Edit Category',
               active: true,
             },
           ],

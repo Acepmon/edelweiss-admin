@@ -195,7 +195,7 @@
     "inventory": "Лангуу",
     "transfers": "Шилжиг",
     "collections": "Коллекц",
-    "categories": "Төрөлүүд",
+    "categories": "Категорууд",
     "customers": "Үйлчлүүлэгч",
     "discounts": "Хямдрал",
     "administrate": "Систем Тохиргоо",
@@ -212,6 +212,8 @@
     "pages": "Хуудас",
     "blog": "Блог"
   },
+
+  "products": "бараанууд",
 
   "All": "Бүгд",
   "Action": "Удирдлага",
