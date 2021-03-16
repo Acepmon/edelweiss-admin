@@ -14,6 +14,7 @@ import others from './routes/others'
 
 import manage from './routes/manage'
 import system from './routes/system'
+import channels from './routes/channels'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,7 @@ const router = new VueRouter({
     // ...others,
     ...manage,
     ...system,
+    ...channels,
     {
       path: '*',
       redirect: 'error-404',

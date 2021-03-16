@@ -21,6 +21,7 @@ export default [
       },
       {
         title: 'nav.settings',
+        route: 'channels-web-settings'
       }
     ]
   },
