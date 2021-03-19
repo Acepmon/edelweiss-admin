@@ -158,7 +158,34 @@ export default {
     },
 
     onDelete () {
-      // 
+      this.$bvModal
+        .msgBoxConfirm('Please confirm that you want to delete category.', {
+          title: 'Please Confirm',
+          size: 'sm',
+          okVariant: 'danger',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
+          cancelVariant: 'outline-secondary',
+          hideHeaderClose: false,
+          centered: true,
+        })
+        .then(value => {
+          if (value) {
+            this.$http.delete('/api/categories/' + this.category)
+              .then(() => {
+                this.$router.push({ name: 'manage-categories-grid' })
+                this.$toast({
+                  component: ToastificationContent,
+                  props: {
+                    title: this.$t('Success!'),
+                    icon: 'CheckCircleIcon',
+                    text: 'Successfully deleted category!',
+                    variant: 'success',
+                  },
+                })
+              })
+          }
+        })
     }
   },
 

@@ -60,6 +60,11 @@ class CategoryController extends Controller
 
     public function destroy(Request $request, Category $category)
     {
+        $category->products()->update(['category_id' => null]);
         $category->delete();
+
+        return response()->json([
+            'result' => 'success'
+        ]);
     }
 }
