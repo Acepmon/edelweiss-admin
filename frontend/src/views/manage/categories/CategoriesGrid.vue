@@ -7,12 +7,12 @@
         <app-mgmt-input-search v-model="filter.search" />
       </div>
 
-      <div class="col text-right">
+      <!-- <div class="col text-right">
         <app-mgmt-button variant="primary" @click="onCreate">
           <feather-icon icon="PlusIcon" class="mr-50"></feather-icon>
           New Category
         </app-mgmt-button>
-      </div>
+      </div> -->
     </div>
 
     <vue-good-table 
