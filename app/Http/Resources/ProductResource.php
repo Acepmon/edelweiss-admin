@@ -28,7 +28,7 @@ class ProductResource extends JsonResource
             'product_thumb' => $this->thumbnail,
 
             'category_id' => $this->category_id,
-            'category_name' => $this->category->name,
+            'category_name' => $this->category ? $this->category->name : null,
 
             'tags' => array_filter(explode(',', $this->tags)),
             'charge_tax' => $this->charge_tax,

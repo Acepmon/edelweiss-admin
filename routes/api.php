@@ -46,10 +46,12 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('categories/{category}/products', [CategoryController::class, 'products'])->name('categories.products');
+Route::put('categories/{category}/products', [CategoryController::class, 'syncProducts'])->name('categories.products.sync');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::put('categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
+Route::put('products', [ProductController::class, 'batchUpdate'])->name('products.update.batch');
 Route::apiResource('products', ProductController::class);
 Route::apiResource('products.medias', ProductMediaController::class)->except(['show']);
 Route::apiResource('products.seo', ProductSeoController::class)->except(['show']);

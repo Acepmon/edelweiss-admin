@@ -23,6 +23,10 @@ class ProductController extends Controller
 
         $items = Product::query();
 
+        if ($request->has('uncategorized')) {
+            $items = $items->whereNull('category_id');
+        }
+
         if ($request->has('search') && !empty($request->input('search'))) {
             $search = $request->input('search');
             $items = $items->where('product_title', 'LIKE', '%' . $search . '%');
@@ -100,6 +104,32 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function batchUpdate(Request $request)
+    {
+        $request->validate([
+            'where' => ['nullable', 'array'],
+            'whereIn.key' => ['nullable', 'string'],
+            'whereIn.val' => ['nullable', 'array'],
+            'set' => ['required', 'array'],
+        ]);
+
+        $where = $request->input('where');
+        $whereIn = $request->input('whereIn');
+        $set = $request->input('set');
+        $affected = null;
+
+        if ($request->has('where')) {
+            $affected = Product::where($where)->update($set);
+        } else if ($request->has('whereIn')) {
+            $affected = Product::whereIn($whereIn['key'], $whereIn['val'])->update($set);
+        }
+
+        return response()->json([
+            'result' => 'success',
+            'affected' => $affected
+        ]);
     }
 
     /**
