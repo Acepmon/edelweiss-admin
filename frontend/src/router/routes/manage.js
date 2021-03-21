@@ -1,54 +1,45 @@
 export default [
   {
-    path: '/manage/orders/all',
-    name: 'manage-orders-all',
-    component: () => import('@/views/manage/orders/OrdersAll.vue'),
-    meta: {
-      pageTitle: 'All Orders',
-      breadcrumb: [
-        {
-          text: 'Orders',
-        },
-        {
-          text: 'All Orders',
-          active: true,
-        },
-      ],
-    },
+    path: '/manage/orders',
+    name: 'manage-orders',
+    component: () => import('@/views/manage/orders/Orders.vue'),
+    children: [
+      {
+        path: '',
+        name: 'manage-orders-grid',
+        component: () => import('@/views/manage/orders/OrdersGrid.vue'),
+        meta: {
+          pageTitle: 'All Orders',
+          breadcrumb: [
+            {
+              text: 'All Orders',
+              active: true
+            }
+          ]
+        }
+      }
+    ]
   },
   {
-    path: '/manage/orders/drafts',
-    name: 'manage-orders-drafts',
-    component: () => import('@/views/manage/orders/OrdersDrafts.vue'),
-    meta: {
-      pageTitle: 'Drafts',
-      breadcrumb: [
-        {
-          text: 'Orders',
+    path: '/manage/drafts',
+    name: 'manage-drafts',
+    component: () => import('@/views/manage/drafts/Drafts.vue'),
+    children: [
+      {
+        path: '',
+        name: 'manage-drafts-grid',
+        component: () => import('@/views/manage/drafts/DraftsGrid.vue'),
+        meta: {
+          pageTitle: 'Drafts',
+          breadcrumb: [
+            {
+              text: 'Drafts',
+              active: true,
+            },
+          ],
         },
-        {
-          text: 'Drafts',
-          active: true,
-        },
-      ],
-    },
-  },
-  {
-    path: '/manage/orders/abondoned',
-    name: 'manage-orders-abondoned',
-    component: () => import('@/views/manage/orders/OrdersAbondoned.vue'),
-    meta: {
-      pageTitle: 'Abondoned Carts',
-      breadcrumb: [
-        {
-          text: 'Orders',
-        },
-        {
-          text: 'Abondoned Carts',
-          active: true,
-        },
-      ],
-    },
+      },
+    ]
   },
   {
     path: '/manage/products',

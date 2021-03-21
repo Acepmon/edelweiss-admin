@@ -8,11 +8,11 @@ export default [
     children: [
       {
         title: 'nav.all-orders',
-        route: 'manage-orders-all'
+        route: 'manage-orders-grid'
       },
       {
         title: 'nav.drafts',
-        route: 'manage-orders-drafts'
+        route: 'manage-drafts-grid'
       }
     ]
   },

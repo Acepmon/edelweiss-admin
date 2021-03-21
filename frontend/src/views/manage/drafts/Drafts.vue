@@ -1,10 +1,10 @@
 <template>
-  <div>manage orders abondoned</div>
+  <router-view></router-view>
 </template>
 
 <script>
 export default {
-  name: 'manage-orders-abondoned'
+  name: 'manage-drafts'
 }
 </script>
 

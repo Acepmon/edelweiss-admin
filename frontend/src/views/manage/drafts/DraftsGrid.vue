@@ -42,7 +42,7 @@ import AppMgmtButton from '@/@core/components/app-mgmt/AppMgmtButton.vue'
 import AppMgmtGrid from '@/@core/components/app-mgmt/AppMgmtGrid.vue'
 
 export default {
-  name: 'manage-orders-drafts',
+  name: 'manage-drafts-grid',
 
   components: {
     AppMgmt,

@@ -1,10 +1,10 @@
 <template>
-  <div>manage orders all</div>
+  <router-view></router-view>
 </template>
 
 <script>
 export default {
-  name: 'manage-orders-all'
+  name: 'manage-orders'
 }
 </script>
 
