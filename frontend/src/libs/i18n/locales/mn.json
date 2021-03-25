@@ -216,6 +216,10 @@
   "products": "бараанууд",
 
   "All": "Бүгд",
+  "Unfulfilled": "Unfulfilled",
+  "Unpaid": "Төлөгдөөгүй",
+  "Open": "Нээлттэй",
+  "Closed": "Хаагдсан",
   "Action": "Удирдлага",
 
   "codes": {

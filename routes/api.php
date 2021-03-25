@@ -14,6 +14,7 @@ use App\Http\Controllers\ProductSeoController;
 use App\Http\Controllers\ProductVariantOptionController;
 use App\Http\Controllers\ProductVariantController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +60,8 @@ Route::apiResource('products.options', ProductVariantOptionController::class)->e
 Route::apiResource('products.variants', ProductVariantController::class)->except(['show']);
 
 Route::get('collections', [CollectionController::class, 'index'])->name('collections.index');
+
+Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
 
 Route::get('drafts', [DraftController::class, 'index'])->name('drafts.index');
 

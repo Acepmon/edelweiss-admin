@@ -30,4 +30,24 @@ class Order extends Model
     {
         return $this->hasOne(OrderBilling::class, 'order_id');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer');
+    }
+
+    public function order_status()
+    {
+        return $this->belongsTo('App\Models\CommonCode', 'order_status_cd', 'comm2_cd')->whereNotIn('comm2_cd', ['$$'])->where('comm1_cd', 'D01');
+    }
+
+    public function payment_status()
+    {
+        return $this->belongsTo('App\Models\CommonCode', 'payment_status_cd', 'comm2_cd')->whereNotIn('comm2_cd', ['$$'])->where('comm1_cd', 'D02');
+    }
+
+    public function fulfillment_status()
+    {
+        return $this->belongsTo('App\Models\CommonCode', 'fulfillment_status_cd', 'comm2_cd')->whereNotIn('comm2_cd', ['$$'])->where('comm1_cd', 'D03');
+    }
 }

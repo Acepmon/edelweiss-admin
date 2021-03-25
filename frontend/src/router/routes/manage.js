@@ -8,14 +8,110 @@ export default [
         path: '',
         name: 'manage-orders-grid',
         component: () => import('@/views/manage/orders/OrdersGrid.vue'),
+        redirect: { name: 'manage-orders-grid-all' },
+        children: [
+          {
+            path: 'all',
+            name: 'manage-orders-grid-all',
+            component: () => import('@/views/manage/orders/OrdersGridAll.vue'),
+            meta: {
+              pageTitle: 'Orders',
+              breadcrumb: [
+                {
+                  text: 'Orders',
+                },
+                {
+                  text: 'All',
+                  active: true
+                }
+              ]
+            },
+          },
+          {
+            path: 'unfulfilled',
+            name: 'manage-orders-grid-unfulfilled',
+            component: () => import('@/views/manage/orders/OrdersGridUnfulfilled.vue'),
+            meta: {
+              pageTitle: 'Orders',
+              breadcrumb: [
+                {
+                  text: 'Orders',
+                },
+                {
+                  text: 'Unfulfilled',
+                  active: true
+                }
+              ]
+            },
+          },
+          {
+            path: 'unpaid',
+            name: 'manage-orders-grid-unpaid',
+            component: () => import('@/views/manage/orders/OrdersGridUnpaid.vue'),
+            meta: {
+              pageTitle: 'Orders',
+              breadcrumb: [
+                {
+                  text: 'Orders',
+                },
+                {
+                  text: 'Unpaid',
+                  active: true
+                }
+              ]
+            },
+          },
+          {
+            path: 'open',
+            name: 'manage-orders-grid-open',
+            component: () => import('@/views/manage/orders/OrdersGridOpen.vue'),
+            meta: {
+              pageTitle: 'Orders',
+              breadcrumb: [
+                {
+                  text: 'Orders',
+                },
+                {
+                  text: 'Open',
+                  active: true
+                }
+              ]
+            },
+          },
+          {
+            path: 'closed',
+            name: 'manage-orders-grid-closed',
+            component: () => import('@/views/manage/orders/OrdersGridClosed.vue'),
+            meta: {
+              pageTitle: 'Orders',
+              breadcrumb: [
+                {
+                  text: 'Orders',
+                },
+                {
+                  text: 'Closed',
+                  active: true
+                }
+              ]
+            },
+          }
+        ]
+      },
+      {
+        path: ':order',
+        name: 'manage-orders-edit',
+        component: () => import('@/views/manage/orders/OrdersEdit.vue'),
         meta: {
-          pageTitle: 'All Orders',
+          pageTitle: 'Edit Order',
           breadcrumb: [
             {
-              text: 'All Orders',
+              text: 'Orders',
+            },
+            {
+              text: 'Edit Order',
               active: true
             }
-          ]
+          ],
         }
       }
     ]
