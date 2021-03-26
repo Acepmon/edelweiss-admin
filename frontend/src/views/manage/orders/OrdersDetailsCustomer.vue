@@ -4,7 +4,7 @@
       <b-spinner type="grow" label="Loading..."></b-spinner>
     </div>
 
-    <b-table-simple v-if="item" borderless hover>
+    <b-table-simple v-if="item" borderless small>
       <b-tbody>
         <b-tr>
           <b-th>First name</b-th>
