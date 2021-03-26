@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CustomerResource;
+use App\Http\Resources\OrderBillingResource;
+use App\Http\Resources\OrderProductResource;
 use App\Http\Resources\OrderResource;
+use App\Http\Resources\OrderShippingResource;
 use App\Models\Order;
+use App\Models\OrderShipping;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -96,7 +101,29 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        return new OrderResource($order);
+    }
+
+    public function showProducts(Order $order)
+    {
+        $items = $order->products()->with('product')->get();
+        
+        return OrderProductResource::collection($items);
+    }
+
+    public function showCustomer(Order $order)
+    {
+        return new CustomerResource($order->customer);
+    }
+
+    public function showShipping(Order $order)
+    {
+        return new OrderShippingResource($order->shipping);
+    }
+
+    public function showBilling(Order $order)
+    {
+        return new OrderBillingResource($order->billing);
     }
 
     /**

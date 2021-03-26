@@ -62,6 +62,11 @@ Route::apiResource('products.variants', ProductVariantController::class)->except
 Route::get('collections', [CollectionController::class, 'index'])->name('collections.index');
 
 Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::get('orders/{order}/products', [OrderController::class, 'showProducts'])->name('orders.show.products');
+Route::get('orders/{order}/customer', [OrderController::class, 'showCustomer'])->name('orders.show.customer');
+Route::get('orders/{order}/shipping', [OrderController::class, 'showShipping'])->name('orders.show.shipping');
+Route::get('orders/{order}/billing', [OrderController::class, 'showBilling'])->name('orders.show.billing');
 
 Route::get('drafts', [DraftController::class, 'index'])->name('drafts.index');
 

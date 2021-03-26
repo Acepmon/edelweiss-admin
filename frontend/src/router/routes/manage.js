@@ -99,16 +99,38 @@ export default [
       },
       {
         path: ':order',
+        name: 'manage-orders-details',
+        component: () => import('@/views/manage/orders/OrdersDetails.vue'),
+        meta: {
+          backTo: { name: 'manage-orders-grid' },
+          pageTitle: 'Order Details',
+          breadcrumb: [
+            {
+              text: 'Orders',
+            },
+            {
+              text: 'Details',
+              active: true
+            }
+          ],
+        }
+      },
+      {
+        path: ':order/edit',
         name: 'manage-orders-edit',
         component: () => import('@/views/manage/orders/OrdersEdit.vue'),
         meta: {
+          backTo: { name: 'manage-orders-grid' },
           pageTitle: 'Edit Order',
           breadcrumb: [
             {
               text: 'Orders',
             },
             {
-              text: 'Edit Order',
+              text: 'Details'
+            },
+            {
+              text: 'Edit',
               active: true
             }
           ],

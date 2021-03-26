@@ -11,7 +11,7 @@
       :columns="options.columns" 
       :api="options.api" 
       :columnFilters="{status_cd: filter.status}"
-      @on-row-dblclick="onRowClick" 
+      @on-row-click="onRowClick" 
       :searchOptions="{
         enabled: true,
         trigger: 'enter',
@@ -62,7 +62,12 @@ export default {
 
   methods: {
     onRowClick (params) {
-      console.log(params)
+      this.$router.push({
+        name: 'manage-orders-details',
+        params: {
+          order: params.row.id
+        }
+      })
     }
   }
 }

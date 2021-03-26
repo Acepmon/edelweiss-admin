@@ -62,7 +62,7 @@ export default {
   methods: {
     onRowClick (params) {
       this.$router.push({
-        name: 'manage-orders-edit',
+        name: 'manage-orders-details',
         params: {
           order: params.row.id
         }
